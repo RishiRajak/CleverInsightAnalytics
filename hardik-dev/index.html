@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clever Insight Analytics — Design simulations (partner review)</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#07090f;--card:#0f1524;--line:#243049;--text:#e8eefc;--muted:#93a0bb}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(800px 400px at 15% 0%,rgba(56,189,248,.14),transparent 60%),radial-gradient(700px 400px at 90% 10%,rgba(167,139,250,.14),transparent 60%)}
+    .wrap{width:min(1120px,92%);margin:0 auto;padding:72px 0 80px}
+    .kicker{color:#38bdf8;letter-spacing:.16em;font-size:.72rem;font-weight:700;text-transform:uppercase}
+    h1{font-size:clamp(2rem,4vw,3.3rem);margin:12px 0 14px;letter-spacing:-.03em;line-height:1.1}
+    .lede{color:var(--muted);max-width:66ch}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+    a.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;background:var(--card);transition:transform .25s,border-color .25s}
+    a.card:hover{transform:translateY(-5px);border-color:#3b82f6}
+    .thumb{height:150px;display:grid;place-items:center;font-weight:700;letter-spacing:.08em;font-size:.8rem;color:rgba(255,255,255,.85)}
+    .t1{background:linear-gradient(135deg,#071420,#0b3b4f 60%,#3ee0ff33);color:#3ee0ff}
+    .t2{background:linear-gradient(135deg,#f5f0e6,#e6d9bf 60%,#c2410c44);color:#17140f}
+    .t3{background:linear-gradient(135deg,#1b0f3a,#3b1d78 55%,#5eead466);color:#e9d5ff}
+    .body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc}
+    h2{font-size:1.4rem}
+    p{color:var(--muted);font-size:.95rem}
+    .go{margin-top:auto;padding-top:14px;font-weight:700;color:#fff}
+    .go small{font-weight:400;color:var(--muted)}
+    .box{margin-top:36px;border:1px solid var(--line);border-radius:16px;padding:22px 24px;background:rgba(15,21,36,.6)}
+    .box h3{font-size:1rem;margin-bottom:8px}
+    .box ul{margin-left:18px;color:var(--muted);font-size:.93rem}
+    code{background:#0b1220;border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:.85em;color:#bae6fd}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="kicker">Hardik-dev · partner review</p>
+    <h1>Three finished-look simulations of the Clever Insight Analytics site</h1>
+    <p class="lede">Same company, same content, three visual directions. All three read from one shared file, so what you fill in once appears everywhere. Pick a direction with your partners, then we rebuild it in Next.js 15 for production.</p>
+    <div class="grid">
+      <a class="card" href="./sim-01-command-center/index.html">
+        <div class="thumb t1">DARK · OPS · TERMINAL</div>
+        <div class="body"><span class="tag">Sim 01</span><h2>Command Center</h2>
+          <p>Technical and KPI-first. Animated live data-flow diagram, service console, monospace details. Reads as a data product studio.</p>
+          <span class="go">Open <small>· or with <code>?review=1</code></small></span></div>
+      </a>
+      <a class="card" href="./sim-02-signal-house/index.html">
+        <div class="thumb t2">LIGHT · EDITORIAL · SERIF</div>
+        <div class="body"><span class="tag">Sim 02</span><h2>Signal House</h2>
+          <p>Warm paper, big serif type, scroll-lit manifesto and an accordion service list. Reads as a senior, trustworthy consultancy.</p>
+          <span class="go">Open <small>· or with <code>?review=1</code></small></span></div>
+      </a>
+      <a class="card" href="./sim-03-aurora-platform/index.html">
+        <div class="thumb t3">GLASS · AURORA · PRODUCT</div>
+        <div class="body"><span class="tag">Sim 03</span><h2>Aurora Platform</h2>
+          <p>Mesh gradients, spotlight bento cards and an interactive product preview. Reads as one platform you can hire.</p>
+          <span class="go">Open <small>· or with <code>?review=1</code></small></span></div>
+      </a>
+    </div>
+    <div class="box">
+      <h3>How to review</h3>
+      <ul>
+        <li>Open any simulation and press <b>Review mode</b> (bottom-left) to outline every placeholder and list the info still needed.</li>
+        <li>Edit <code>shared/content.js</code> to change copy, services, team, projects and contact details for all three at once.</li>
+        <li>Resize to phone width: all three are responsive and respect reduced-motion settings.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

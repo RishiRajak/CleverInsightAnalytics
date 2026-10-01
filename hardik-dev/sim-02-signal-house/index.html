@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clever Insight Analytics — A data studio for operators</title>
+  <meta name="description" content="Clever Insight Analytics is a three-founder data studio: data engineering, analytics &amp; BI, AI/ML, cloud and custom data products on one platform." />
+  <meta name="theme-color" content="#f5f0e6" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clever Insight Analytics — Data services, composed like a single product" />
+  <meta property="og:description" content="Engineering, analytics, AI and cloud — designed together, delivered together." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2317140f'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Georgia,serif' text-anchor='middle' fill='%23f5f0e6'%3EC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="bar"><span id="status"></span></div>
+
+  <header class="nav">
+    <a class="wordmark" href="#top" aria-label="Clever Insight Analytics — home">Clever Insight<small>Analytics</small></a>
+    <button class="menu-btn" type="button" aria-label="Toggle menu" aria-controls="links"><span></span><span></span></button>
+    <nav class="links" id="links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#team">People</a>
+      <a href="#faq">FAQ</a>
+      <a class="pill" href="#contact" data-book>Book a call</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow" data-copy="kicker" data-reveal></p>
+        <h1 data-copy-html="title" data-reveal style="--d:.06s"></h1>
+        <p class="lede" data-copy="lede" data-reveal style="--d:.12s"></p>
+        <div class="actions" data-reveal style="--d:.18s">
+          <a class="pill dark" href="#contact" data-book>Get an estimate this week</a>
+          <a class="tlink" href="#services">What you can hire us for <span id="ico-arrow"></span></a>
+        </div>
+        <ul class="trust" id="trust" data-reveal style="--d:.24s"></ul>
+      </div>
+      <figure class="signal" data-reveal style="--d:.15s">
+        <figcaption><span class="dot"></span> Signal, not noise <small>illustrative</small></figcaption>
+        <svg viewBox="0 0 520 320" role="img" aria-label="Chart: a noisy metric resolving into a clear upward trend">
+          <g class="grid">
+            <path d="M0 60H520M0 120H520M0 180H520M0 240H520"/>
+          </g>
+          <path class="noise" d="M20 215 L45 190 L70 232 L95 205 L120 240 L145 196 L170 220 L195 170 L220 205 L245 160 L270 188 L295 140 L320 168 L345 118 L370 150 L395 100 L420 128 L445 82 L470 106 L500 64"/>
+          <path class="area" d="M20 250 C90 244 120 200 190 196 S290 150 340 128 S430 74 500 50 V320 H20Z"/>
+          <path class="line" pathLength="1" d="M20 250 C90 244 120 200 190 196 S290 150 340 128 S430 74 500 50"/>
+          <g class="pts">
+            <circle cx="190" cy="196" r="6"/><circle cx="340" cy="128" r="6"/><circle cx="500" cy="50" r="7"/>
+          </g>
+        </svg>
+        <div class="tag t1">Pipeline fixed<br /><b>data you can trust</b></div>
+        <div class="tag t2">KPI agreed<br /><b>one definition</b></div>
+        <div class="tag t3">Decision made<br /><b>with confidence</b></div>
+      </figure>
+    </section>
+
+    <div class="marquee" id="stack" aria-label="Technologies we work with"></div>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto">
+      <p class="eyebrow">Why one team</p>
+      <p class="mtext" id="manifesto"></p>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="sec" id="services">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">What we do</p>
+          <h2>Six pillars. <em>One</em> accountable team.</h2>
+          <p class="sub">Everything a data-heavy company usually splits across five retainers — composed so the warehouse, the model, the app and the dashboard share one contract.</p>
+        </header>
+        <div class="svc-list" id="svc-list"></div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="band" aria-label="At a glance"><div class="wrap band-in" id="stats"></div></section>
+
+    <!-- PROCESS -->
+    <section class="sec" id="process">
+      <div class="wrap proc">
+        <header class="sec-head sticky" data-reveal>
+          <p class="eyebrow">How it works</p>
+          <h2>Clear steps. <em>No surprises.</em></h2>
+          <p class="sub">A rhythm built for busy operators: short feedback loops, weekly demos and written decisions.</p>
+          <a class="pill dark" href="#contact" data-book>Start at step one</a>
+        </header>
+        <ol class="steps" id="steps"></ol>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="sec tint" id="work">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">Selected work</p>
+          <h2>Proof, <em>in progress.</em></h2>
+          <p class="sub">Representative engagements. Full case studies with numbers are being added.</p>
+        </header>
+        <div class="mag" id="mag"></div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="sec slim" id="industries">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>Domains we work in</p>
+        <ul class="inds" id="inds" data-reveal></ul>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="sec tint" id="team">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">The people</p>
+          <h2>The three people you will <em>actually</em> talk to.</h2>
+        </header>
+        <div class="people" id="people"></div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENT -->
+    <section class="sec" id="engage">
+      <div class="wrap">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow">Ways to start</p>
+          <h2>Pick the engagement that <em>fits.</em></h2>
+        </header>
+        <div class="plans" id="plans"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (review mode only until real quotes exist) -->
+    <section class="sec tint" id="voices" hidden>
+      <div class="wrap">
+        <header class="sec-head"><p class="eyebrow">Kind words</p><h2>What clients <em>say.</em></h2></header>
+        <div class="quotes" id="quotes"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <div class="wrap faqwrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions buyers <em>actually</em> ask.</h2>
+        </header>
+        <div class="faq" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="wrap two">
+        <div data-reveal>
+          <p class="eyebrow light">Let's talk</p>
+          <h2>Tell us the decision you can't make yet because the data is <em>late, noisy or trapped.</em></h2>
+          <p class="sub">We reply <span id="resp"></span>. A short call first — or a written proposal if the work is well defined.</p>
+          <ul class="facts" id="facts"></ul>
+        </div>
+        <form class="contact-form" data-reveal style="--d:.1s" novalidate>
+          <label>Name<input name="name" autocomplete="name" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+          <label>Company<input name="company" autocomplete="organization" /></label>
+          <div class="row">
+            <label>Interested in<select name="service" id="service-select"></select></label>
+            <label>Budget
+              <select name="budget">
+                <option value="">Not sure yet</option>
+                <option>Under $2k</option>
+                <option>$2k – $10k</option>
+                <option>$10k – $30k</option>
+                <option>$30k+</option>
+              </select>
+            </label>
+          </div>
+          <label>What are you trying to achieve?<textarea name="message" rows="4" placeholder="Company, stack, deadline…"></textarea></label>
+          <input class="hp" name="company_site" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="pill dark big" type="submit">Send enquiry</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <nav aria-label="Footer"><a href="#services">Services</a><a href="#work">Work</a><a href="#team">People</a><a href="#contact">Contact</a></nav>
+      <ul class="social" id="social"></ul>
+    </div>
+    <div class="giant" aria-hidden="true">Clever Insight</div>
+    <p class="legal">© <span data-year></span> Clever Insight Analytics · <span id="foot-tag"></span> · Sim 02 · preview</p>
+  </footer>
+
+  <script src="../shared/content.js"></script>
+  <script src="../shared/lib.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
