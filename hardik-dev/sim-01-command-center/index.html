@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clever Insight Analytics — Data engineering, analytics, BI &amp; AI studio</title>
+  <meta name="description" content="Clever Insight Analytics is a three-founder data studio: data engineering, analytics &amp; BI, AI/ML, cloud and custom data products on one platform." />
+  <meta name="theme-color" content="#070b12" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clever Insight Analytics — One platform for every data service" />
+  <meta property="og:description" content="Data engineering, analytics &amp; BI, AI/ML, cloud and custom data products from one accountable team." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233ee0ff'/%3E%3Ctext x='16' y='22' font-size='17' font-family='monospace' font-weight='700' text-anchor='middle' fill='%23041018'%3EC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="logo" href="#top" aria-label="Clever Insight Analytics — home"><span class="mark">CIA</span><span class="name">Clever Insight Analytics</span></a>
+    <button class="menu-btn" type="button" aria-label="Toggle menu" aria-controls="links"><span></span><span></span></button>
+    <nav class="links" id="links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-sm" href="#contact" data-book>Start a project</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero spot" id="top">
+      <div class="hero-copy">
+        <p class="status" data-reveal><i></i><span id="status"></span></p>
+        <h1 data-copy-html="title" data-reveal style="--d:.05s"></h1>
+        <p class="lede" data-copy="lede" data-reveal style="--d:.1s"></p>
+        <div class="cta-row" data-reveal style="--d:.15s">
+          <a class="btn" href="#contact" data-book>Start a project <span id="ico-arrow"></span></a>
+          <a class="btn ghost" href="#work">See our work</a>
+        </div>
+        <ul class="chips" id="hero-chips" data-reveal style="--d:.2s"></ul>
+      </div>
+      <div class="hero-viz" data-reveal style="--d:.15s">
+        <div class="viz-bar"><span></span><span></span><span></span><em>cia://platform — illustrative data flow</em></div>
+        <canvas id="flow" aria-label="Animated diagram: sources flow through pipelines, warehouse and models into insights" role="img"></canvas>
+        <div class="viz-tiles">
+          <div><small>Freshness</small><b>&lt; 5 min</b><svg viewBox="0 0 80 24"><path class="spark" d="M0 18 L10 14 L20 16 L30 9 L40 12 L50 6 L60 8 L70 3 L80 5"/></svg></div>
+          <div><small>Quality checks</small><b>142 / 142</b><svg viewBox="0 0 80 24"><path class="spark" d="M0 12 L10 12 L20 11 L30 12 L40 10 L50 11 L60 10 L70 9 L80 9"/></svg></div>
+          <div><small>Dashboards live</small><b>9</b><svg viewBox="0 0 80 24"><path class="spark" d="M0 20 L10 18 L20 19 L30 14 L40 15 L50 10 L60 11 L70 6 L80 4"/></svg></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK MARQUEE -->
+    <div class="marquee" id="stack" aria-label="Technologies we work with"></div>
+
+    <!-- STATS -->
+    <section class="stats" id="stats" aria-label="At a glance"></section>
+
+    <!-- SERVICES -->
+    <section class="sec" id="services">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">01 / Services</p>
+          <h2>One platform. Six pillars. Every data service.</h2>
+          <p class="sub">Pick a pillar to see what is inside. Hire one, or all of them as a single integrated engagement.</p>
+        </header>
+        <div class="console spot" id="console" data-reveal></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="sec dim" id="process">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">02 / Process</p>
+          <h2>From first call to production, without surprises.</h2>
+        </header>
+        <ol class="steps" id="steps"></ol>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="sec" id="work">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">03 / Work</p>
+          <h2>Selected missions.</h2>
+          <p class="sub">Representative engagements across our six pillars.</p>
+        </header>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+        <div class="cards" id="cards"></div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="sec dim slim" id="industries">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">Domains</p>
+          <h2>Built for data-heavy industries.</h2>
+        </header>
+        <ul class="pills" id="industry-list" data-reveal></ul>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="sec" id="team">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">04 / Crew</p>
+          <h2>Three founders. You talk to the people who build it.</h2>
+        </header>
+        <div class="crew" id="crew"></div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENT -->
+    <section class="sec dim" id="engage">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">05 / Engage</p>
+          <h2>Three ways to work with us.</h2>
+        </header>
+        <div class="plans" id="plans"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (review mode only until real quotes exist) -->
+    <section class="sec" id="voices" hidden>
+      <div class="wrap">
+        <header class="sec-head"><p class="eyebrow">Client voices</p><h2>What clients say.</h2></header>
+        <div class="quotes" id="quotes"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <div class="wrap narrow">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow">06 / FAQ</p>
+          <h2>Questions, answered.</h2>
+        </header>
+        <div class="faq" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec dim contact" id="contact">
+      <div class="wrap two">
+        <div data-reveal>
+          <p class="eyebrow">07 / Contact</p>
+          <h2>Tell us about your data problem.</h2>
+          <p class="sub">We reply <span id="resp"></span> with next steps — a short call, or a written proposal for well-defined work.</p>
+          <ul class="facts" id="facts"></ul>
+        </div>
+        <form class="contact-form panel" data-reveal style="--d:.1s" novalidate>
+          <label>Name<input name="name" autocomplete="name" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+          <label>Company<input name="company" autocomplete="organization" /></label>
+          <div class="row">
+            <label>Interested in
+              <select name="service" id="service-select"></select>
+            </label>
+            <label>Budget
+              <select name="budget">
+                <option value="">Not sure yet</option>
+                <option>Under $2k</option>
+                <option>$2k – $10k</option>
+                <option>$10k – $30k</option>
+                <option>$30k+</option>
+              </select>
+            </label>
+          </div>
+          <label>What are you trying to achieve?<textarea name="message" rows="4" placeholder="Sources, goals, deadline…"></textarea></label>
+          <input class="hp" name="company_site" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn" type="submit">Send enquiry</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div><strong>Clever Insight Analytics</strong><p id="foot-tag"></p></div>
+      <nav aria-label="Footer"><a href="#services">Services</a><a href="#work">Work</a><a href="#team">Team</a><a href="#contact">Contact</a></nav>
+      <ul class="social" id="social"></ul>
+    </div>
+    <p class="legal">© <span data-year></span> Clever Insight Analytics. All rights reserved. · Sim 01 · preview</p>
+  </footer>
+
+  <script src="../shared/content.js"></script>
+  <script src="../shared/lib.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

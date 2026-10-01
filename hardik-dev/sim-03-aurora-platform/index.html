@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clever Insight Analytics — One platform for every data service</title>
+  <meta name="description" content="Clever Insight Analytics assembles data engineering, BI, AI, automation and cloud into a single platform, delivered by three hands-on founders." />
+  <meta name="theme-color" content="#05060d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Clever Insight Analytics — Everything data. One platform, one team." />
+  <meta property="og:description" content="Data engineering, BI, AI, automation and cloud as a single layer your business can build on." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%235eead4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-size='17' font-family='Arial' font-weight='700' text-anchor='middle' fill='%2305060d'%3EC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Clever Insight Analytics — home"><i class="orb"></i><span>Clever Insight</span></a>
+    <button class="menu-btn" type="button" aria-label="Toggle menu" aria-controls="links"><span></span><span></span></button>
+    <nav class="links" id="links" aria-label="Primary">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#how">How it works</a>
+      <a href="#work">Work</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a class="glow sm" href="#contact" data-book>Start a project</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <p class="chip" data-reveal><i></i><span id="status"></span></p>
+      <h1 data-copy-html="title" data-reveal style="--d:.06s"></h1>
+      <p class="lede" data-copy="lede" data-reveal style="--d:.12s"></p>
+      <div class="cta" data-reveal style="--d:.18s">
+        <a class="glow" href="#contact" data-book>Start a project <span id="ico-arrow"></span></a>
+        <a class="ghost" href="#capabilities">Explore capabilities</a>
+      </div>
+
+      <!-- Interactive product mock (illustrative) -->
+      <div class="app" id="app" data-reveal style="--d:.25s">
+        <div class="app-top">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="app-tabs" role="tablist" aria-label="Platform preview">
+            <button role="tab" aria-selected="true" aria-controls="pane-0" id="at-0">Pipelines</button>
+            <button role="tab" aria-selected="false" aria-controls="pane-1" id="at-1" tabindex="-1">Dashboards</button>
+            <button role="tab" aria-selected="false" aria-controls="pane-2" id="at-2" tabindex="-1">Models</button>
+            <button role="tab" aria-selected="false" aria-controls="pane-3" id="at-3" tabindex="-1">Automations</button>
+          </div>
+          <span class="live"><i></i>illustrative</span>
+        </div>
+        <div class="app-body">
+          <!-- 0 Pipelines -->
+          <div class="pane on" id="pane-0" role="tabpanel" aria-labelledby="at-0">
+            <div class="pl">
+              <div class="pl-row"><span class="st"></span><b>Sources</b><em>CRM · ERP · Web · Files</em><div class="meter"><i style="--w:92%"></i></div></div>
+              <div class="pl-row"><span class="st"></span><b>Ingest</b><em>Batch + streaming</em><div class="meter"><i style="--w:78%"></i></div></div>
+              <div class="pl-row"><span class="st"></span><b>Transform</b><em>Tested models</em><div class="meter"><i style="--w:96%"></i></div></div>
+              <div class="pl-row"><span class="st"></span><b>Warehouse</b><em>Governed &amp; documented</em><div class="meter"><i style="--w:88%"></i></div></div>
+              <div class="pl-row"><span class="st"></span><b>Serve</b><em>BI · APIs · Apps</em><div class="meter"><i style="--w:70%"></i></div></div>
+            </div>
+            <pre class="log" aria-hidden="true">$ cia run platform
+✓ sources    connected
+✓ ingest     fresh &lt; 5 min
+✓ transform  tests passed
+✓ warehouse  modelled
+→ serve      dashboards updated</pre>
+          </div>
+          <!-- 1 Dashboards -->
+          <div class="pane" id="pane-1" role="tabpanel" aria-labelledby="at-1" hidden>
+            <div class="kpis">
+              <div><small>Revenue</small><b>$1.28M</b><em class="up">▲ 12.4%</em></div>
+              <div><small>Active customers</small><b>8,420</b><em class="up">▲ 5.1%</em></div>
+              <div><small>Churn</small><b>2.3%</b><em class="dn">▼ 0.4%</em></div>
+              <div><small>Forecast accuracy</small><b>94%</b><em class="up">▲ 3 pts</em></div>
+            </div>
+            <div class="charts">
+              <svg viewBox="0 0 360 150" aria-hidden="true" class="bars">
+                <g fill="url(#gv)"><rect x="10" y="90" width="22" height="50" rx="5"/><rect x="48" y="70" width="22" height="70" rx="5"/><rect x="86" y="80" width="22" height="60" rx="5"/><rect x="124" y="50" width="22" height="90" rx="5"/><rect x="162" y="60" width="22" height="80" rx="5"/><rect x="200" y="30" width="22" height="110" rx="5"/><rect x="238" y="42" width="22" height="98" rx="5"/><rect x="276" y="18" width="22" height="122" rx="5"/><rect x="314" y="8" width="22" height="132" rx="5"/></g>
+                <defs><linearGradient id="gv" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#5eead4" stop-opacity=".5"/></linearGradient></defs>
+              </svg>
+              <svg viewBox="0 0 150 150" aria-hidden="true" class="donut">
+                <circle cx="75" cy="75" r="52" class="d0"/><circle cx="75" cy="75" r="52" class="d1" pathLength="100"/><circle cx="75" cy="75" r="52" class="d2" pathLength="100"/>
+                <text x="75" y="82" text-anchor="middle">74%</text>
+              </svg>
+            </div>
+          </div>
+          <!-- 2 Models -->
+          <div class="pane" id="pane-2" role="tabpanel" aria-labelledby="at-2" hidden>
+            <svg viewBox="0 0 560 190" class="fc" aria-hidden="true">
+              <defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5eead4" stop-opacity=".35"/><stop offset="1" stop-color="#5eead4" stop-opacity="0"/></linearGradient></defs>
+              <path class="band" d="M330 110 C380 95 430 80 550 50 L550 130 C430 130 380 120 330 118Z" fill="url(#gf)"/>
+              <path class="hist" pathLength="1" d="M10 150 C40 140 60 160 90 130 S150 120 180 105 S240 120 270 95 S310 110 330 114"/>
+              <path class="pred" pathLength="1" d="M330 114 C380 108 430 90 550 78"/>
+              <line x1="330" y1="10" x2="330" y2="180" class="now"/>
+              <text x="338" y="24">forecast →</text>
+            </svg>
+            <div class="mrow"><div><small>MAPE</small><b>6.1%</b></div><div><small>Drift</small><b>None</b></div><div><small>Last retrain</small><b>2 days ago</b></div><div><small>Serving</small><b>p95 &lt; 120 ms</b></div></div>
+          </div>
+          <!-- 3 Automations -->
+          <div class="pane" id="pane-3" role="tabpanel" aria-labelledby="at-3" hidden>
+            <div class="flowx">
+              <div class="nd"><small>Trigger</small><b>New invoice</b></div><i class="ar"></i>
+              <div class="nd"><small>Extract</small><b>AI parsing</b></div><i class="ar"></i>
+              <div class="nd"><small>Validate</small><b>Rules + review</b></div><i class="ar"></i>
+              <div class="nd"><small>Load</small><b>Warehouse + ERP</b></div><i class="ar"></i>
+              <div class="nd hot"><small>Notify</small><b>Slack · Email</b></div>
+            </div>
+            <pre class="log" aria-hidden="true">14:02  invoice #4821  extracted
+14:02  validation     passed
+14:03  posted to ERP  ok
+14:03  slack          #finance notified</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="stackrows" aria-label="Technologies we work with">
+      <div class="marquee" id="stack1"></div>
+      <div class="marquee rev" id="stack2"></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats wrap" id="stats" aria-label="At a glance"></section>
+
+    <!-- CAPABILITIES -->
+    <section class="sec" id="capabilities">
+      <div class="wrap">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow">Capabilities</p>
+          <h2>One fabric. <span class="grad">Every data service.</span></h2>
+          <p class="sub">Hire a single pillar, or the whole platform as one integrated engagement.</p>
+        </header>
+        <div class="bento" id="bento"></div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="sec" id="how">
+      <div class="wrap narrow">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow">How it works</p>
+          <h2>From first call to <span class="grad">production.</span></h2>
+        </header>
+        <ol class="tl" id="tl"></ol>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="sec" id="work">
+      <div class="wrap">
+        <header class="sec-head split" data-reveal>
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Built to <span class="grad">move a metric.</span></h2>
+            <p class="sub">Representative engagements. Full case studies are being added.</p>
+          </div>
+          <div class="arrows"><button type="button" class="ghost sq" id="prev" aria-label="Previous projects">←</button><button type="button" class="ghost sq" id="next" aria-label="Next projects">→</button></div>
+        </header>
+      </div>
+      <div class="rail" id="rail" tabindex="0" aria-label="Projects"></div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="sec slim" id="industries">
+      <div class="wrap center-t">
+        <p class="eyebrow" data-reveal>Domains</p>
+        <ul class="chipset" id="inds" data-reveal></ul>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="sec" id="team">
+      <div class="wrap">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow">The founders</p>
+          <h2>Three people. <span class="grad">Zero handoffs.</span></h2>
+          <p class="sub">You work directly with the people building your platform.</p>
+        </header>
+        <div class="crew" id="crew"></div>
+      </div>
+    </section>
+
+    <!-- ENGAGE -->
+    <section class="sec" id="engage">
+      <div class="wrap">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow">Engagement models</p>
+          <h2>Start small. <span class="grad">Scale when it works.</span></h2>
+        </header>
+        <div class="plans" id="plans"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (review mode only until real quotes exist) -->
+    <section class="sec" id="voices" hidden>
+      <div class="wrap">
+        <header class="sec-head center"><p class="eyebrow">Client voices</p><h2>What clients <span class="grad">say.</span></h2></header>
+        <div class="quotes" id="quotes"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <div class="wrap narrow">
+        <header class="sec-head center" data-reveal>
+          <p class="eyebrow">FAQ</p>
+          <h2>Good <span class="grad">questions.</span></h2>
+        </header>
+        <div class="faq" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec" id="contact">
+      <div class="wrap">
+        <div class="glass big two" data-reveal>
+          <div>
+            <p class="eyebrow">Start a project</p>
+            <h2>Drop the problem. <span class="grad">Get a proposed sprint.</span></h2>
+            <p class="sub">We reply <span id="resp"></span> — a short call first, or a written proposal for well-defined work.</p>
+            <ul class="facts" id="facts"></ul>
+          </div>
+          <form class="contact-form" novalidate>
+            <label>Name<input name="name" autocomplete="name" required /></label>
+            <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+            <label>Company<input name="company" autocomplete="organization" /></label>
+            <div class="row">
+              <label>Interested in<select name="service" id="service-select"></select></label>
+              <label>Budget
+                <select name="budget">
+                  <option value="">Not sure yet</option>
+                  <option>Under $2k</option>
+                  <option>$2k – $10k</option>
+                  <option>$10k – $30k</option>
+                  <option>$30k+</option>
+                </select>
+              </label>
+            </div>
+            <label>What are you trying to achieve?<textarea name="message" rows="4" placeholder="Where is your data getting stuck?"></textarea></label>
+            <input class="hp" name="company_site" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button class="glow" type="submit">Send enquiry</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <a class="brand" href="#top"><i class="orb"></i><span>Clever Insight Analytics</span></a>
+      <nav aria-label="Footer"><a href="#capabilities">Capabilities</a><a href="#work">Work</a><a href="#team">Team</a><a href="#contact">Contact</a></nav>
+      <ul class="social" id="social"></ul>
+    </div>
+    <p class="legal">© <span data-year></span> Clever Insight Analytics · <span id="foot-tag"></span> · Sim 03 · preview</p>
+  </footer>
+
+  <script src="../shared/content.js"></script>
+  <script src="../shared/lib.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
