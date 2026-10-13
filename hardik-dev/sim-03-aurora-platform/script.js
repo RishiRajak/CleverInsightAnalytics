@@ -44,10 +44,10 @@
   $("#rail").innerHTML = C.projects
     .map((p, i) => `<article class="pj spot"${todo(p.todo)}>
       <div class="cover" aria-hidden="true">${K.cover(i)}</div>
-      <div class="pb"><span class="cat">${esc(p.category)} · ${esc(p.year)}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
+      <div class="pb"><span class="cat">${esc(p.category)}${p.year ? ` · ${esc(p.year)}` : ""}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
       ${p.metrics && p.metrics.length ? `<div class="mets">${p.metrics.map((x) => `<div><b>${esc(x.v)}</b><small>${esc(x.k)}</small></div>`).join("")}</div>` : ""}
       <div class="stk">${p.stack.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
-      <span class="soon">Case study coming soon ${icon("arrow", 14)}</span></div></article>`)
+      ${p.href ? `<a class="soon" href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.linkLabel || "Read")} ${icon("arrow", 14)}</a>` : `<span class="soon">Organisation not named</span>`}</div></article>`)
     .join("");
   const rail = $("#rail");
   const step = () => Math.min(420, rail.clientWidth * 0.85);
@@ -60,17 +60,18 @@
 
   /* industries */
   $("#inds").innerHTML = C.industries.map((x) => `<li>${esc(x)}</li>`).join("");
-  $("#inds").setAttribute("data-todo", "Confirm / trim industries to real experience");
 
-  /* team */
+  /* team — capability lines, never job titles or employers */
   const links = (m) => {
-    const L = [["linkedin", "LinkedIn"], ["github", "GitHub"], ["portfolio", "Portfolio"]].filter(([k]) => m.links[k]).map(([k, l]) => `<a href="${esc(m.links[k])}" target="_blank" rel="noopener">${l}</a>`);
-    return L.length ? L.join("") : `<span class="soon">Portfolio coming soon</span>`;
+    const map = [["linkedin", "LinkedIn"], ["github", "GitHub"], ["portfolio", "Portfolio"], ["medium", "Medium"]];
+    const L = map.filter(([k]) => m.links && m.links[k]).map(([k, l]) => `<a href="${esc(m.links[k])}" target="_blank" rel="noopener">${l}</a>`);
+    L.push(`<a href="#work">Selected work</a>`);
+    return L.join("");
   };
   $("#crew").innerHTML = C.team
     .map((m, i) => `<article class="member spot" data-reveal style="--d:${i * 0.1}s"${todo(m.todo)}>
       <div class="avatar"><div>${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy"/>` : esc(K.initials(m.name))}</div></div>
-      <h3>${esc(m.name)}</h3><div class="role">${esc(m.role)}</div><p>${esc(m.bio)}</p>
+      <h3>${esc(m.name)}</h3>${m.focus ? `<div class="role">${esc(m.focus)}</div>` : ""}<p>${esc(m.bio)}</p>
       <div class="skills">${m.skills.map((s) => `<span>${esc(s)}</span>`).join("")}</div><div class="mlinks">${links(m)}</div></article>`)
     .join("");
 
@@ -93,12 +94,18 @@
   $("#faq-list").innerHTML = C.faq.map((f, i) => `<details${i === 0 ? " open" : ""}${todo(f.todo)}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("");
 
   /* contact */
+  const phones = String(C.contact.phone || "")
+    .split("·")
+    .map((n) => n.trim())
+    .filter(Boolean)
+    .map((n) => `<a href="tel:${esc(n.replace(/[^\d+]/g, ""))}">${esc(n)}</a>`)
+    .join("<br>");
   $("#facts").innerHTML = `
     <li>${icon("mail", 20)}<a href="mailto:${esc(C.contact.email)}">${esc(C.contact.email)}</a></li>
-    <li${todo(C.contact.phoneTodo)}>${icon("phone", 20)}<span>${esc(C.contact.phone)}</span></li>
+    ${phones ? `<li>${icon("phone", 20)}<span>${phones}</span></li>` : ""}
     <li>${icon("pin", 20)}<span>${esc(C.contact.location)}</span></li>
-    <li>${icon("clock", 20)}<span>${esc(C.contact.hours)}</span></li>`;
-  $("#service-select").innerHTML = `<option value="">Not sure yet</option>` + C.services.map((s) => `<option>${esc(s.name)}</option>`).join("") + `<option>Full platform (multiple pillars)</option>`;
+    ${C.contact.hours ? `<li>${icon("clock", 20)}<span>${esc(C.contact.hours)}</span></li>` : ""}`;
+  $("#service-select").innerHTML = `<option value="">Not sure yet</option>` + C.services.map((s) => `<option>${esc(s.name)}</option>`).join("") + `<option>More than one of these</option>`;
   $("#social").innerHTML = K.socials().map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("");
 
   /* product mock: tabs + gentle autoplay until the visitor interacts */

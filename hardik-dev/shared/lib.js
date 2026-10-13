@@ -29,6 +29,8 @@
     pin: '<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>',
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     ext: '<path d="M7 17 17 7M8 7h9v9"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   };
   const icon = (n, s = 24) =>
     `<svg class="ico" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ICONS.spark}</svg>`;
@@ -245,14 +247,17 @@
     $$("[data-todo]").forEach((n) => { const k = n.dataset.todo; uniq[k] = (uniq[k] || 0) + 1; });
     const p = document.createElement("div");
     p.className = "cia-rpanel";
-    p.innerHTML = `<h4>Info needed from founders</h4><ul>${Object.entries(uniq).map(([k, n]) => `<li>${esc(k)}${n > 1 ? ` <small>(×${n})</small>` : ""}</li>`).join("")}</ul><h4 style="margin-top:10px">Master checklist</h4><ul>${C.todo.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+    p.innerHTML = `<h4>Still to confirm</h4><ul>${Object.entries(uniq).map(([k, n]) => `<li>${esc(k)}${n > 1 ? ` <small>(×${n})</small>` : ""}</li>`).join("") || "<li>Nothing outlined on this page.</li>"}</ul><h4 style="margin-top:10px">Master checklist</h4><ul>${C.todo.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
     document.body.appendChild(p);
   }
 
   function boot(opts = {}) {
     $$("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear()));
-    const cta = C.contact.calendly;
-    $$("[data-book]").forEach((a) => { if (cta) { a.href = cta; a.target = "_blank"; a.rel = "noopener"; } });
+    const cta = C.contact.calendly || `mailto:${C.contact.email}?subject=${encodeURIComponent("Project enquiry")}`;
+    $$("[data-book]").forEach((a) => {
+      a.href = cta;
+      if (!String(cta).startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
+    });
     reveal();
     countUp();
     spotlight(opts.spot || ".spot");

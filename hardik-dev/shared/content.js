@@ -1,249 +1,331 @@
 /* ==========================================================================
-   Clever Insight Analytics — SINGLE SOURCE OF TRUTH for all 3 simulations.
-   Edit here once; every simulation (and later the Next.js site) reads this.
-
-   Anything with `todo: "..."` is a placeholder that needs real info from the
-   founders. Open any simulation with  ?review=1  to see them outlined + listed.
+   Clever Insight Analytics LLP — content for the Aurora site.
+   No personal emails, no employer names, no client names.
+   Projects are written as independent / freelance work.
    ========================================================================== */
 window.CIA = {
   brand: {
-    name: "Clever Insight Analytics",
+    name: "Clever Insight Analytics LLP",
     short: "CIA",
     domain: "www.cleverinsightanalytics.com",
-    tagline: "One platform for every data service.",
-    founded: "", // TODO: year founded (optional, builds trust)
+    tagline: "Data projects, from pipeline to decision.",
+    founded: "",
   },
 
   contact: {
     email: "info@cleverinsightanalytics.com",
-    phone: "+91 XXXXX XXXXX", // TODO: real phone / WhatsApp
-    phoneTodo: "Real phone / WhatsApp number",
-    location: "India · working with clients worldwide", // TODO: city / address if you want it shown
-    hours: "Mon–Sat · 10:00–19:00 IST", // TODO: confirm
-    responseTime: "within one business day", // TODO: confirm promise
-    calendly: "", // TODO: booking link (Calendly / Cal.com). Empty = "Start a project" jumps to the form.
-    formEndpoint: "", // TODO: Formspree / Basin / Web3Forms URL. Empty = form opens the visitor's email app.
+    phone: "+91 98716 02093 · +91 95994 39248",
+    location: "India · working with clients worldwide",
+    hours: "",
+    responseTime: "usually within the same day",
+    calendly: "",
+    formEndpoint: "",
   },
 
   social: {
-    linkedin: "", // TODO: company page
+    linkedin: "",
     github: "",
     x: "",
-    upwork: "", // TODO: freelancing profile — big for winning projects
+    upwork: "",
     clutch: "",
   },
 
-  status: "Booking projects for Q4 2026 and Q1 2027", // TODO: keep honest, update each quarter
+  status: "Booking projects for Q4 2026 and Q1 2027",
 
-  /* Hero copy per simulation, so partners can compare messaging as well as design.
-     [square brackets] = highlighted word(s). */
   heroes: {
-    cmd: {
-      kicker: "Data engineering · Analytics · AI · Cloud",
-      title: "The operating system for [data-intensive] business.",
-      lede:
-        "Clever Insight Analytics is a three-founder data studio. We build the pipelines, dashboards, models and apps your business runs on — as one accountable team, not five vendors.",
-    },
-    signal: {
-      kicker: "A data studio for operators",
-      title: "Data services, [composed] like a single product.",
-      lede:
-        "From raw source systems to the board pack, one small team owns the whole path. Engineering, analytics, AI and cloud — designed together, delivered together.",
-    },
     aurora: {
-      kicker: "One platform · every data service",
-      title: "Everything data. [One platform,] one team.",
+      kicker: "Data engineering · Analytics · AI",
+      title: "Data work, delivered as [one team.]",
       lede:
-        "Stop stitching together vendors. We assemble data engineering, BI, AI, automation and cloud into a single, reliable layer your business can build on.",
+        "Clever Insight Analytics LLP takes on pipelines, dashboards, research, and models as project work. You deal with the people who build it.",
     },
   },
 
   manifesto:
-    "Most data projects fail in the handoffs between the people who move the data, the people who model it and the people who present it. We removed the handoffs. Three founders, one backlog, one team accountable for the whole path — from raw source to the decision on your screen.",
+    "The useful work sits between moving the data, making sense of it, and putting a decision on screen. We do that path as one team — scoped projects, written up without client names.",
 
-  /* Numbers. `auto` values are computed from the services list below. */
   stats: [
-    { auto: "capabilities", label: "Data capabilities" },
-    { auto: "pillars", label: "Service pillars" },
-    { value: 3, label: "Founders on every project", todo: "Confirm: founders stay hands-on" },
-    { value: 2, suffix: " wk", label: "To a first working demo", todo: "Confirm: realistic first-demo timeline" },
+    { auto: "capabilities", label: "Capabilities" },
+    { auto: "pillars", label: "Services" },
+    { value: 4, label: "Specialists on the team" },
+    { value: 3, suffix: " wk", label: "To a first working demo" },
   ],
 
-  /* ---- THE SERVICE CATALOGUE (keep memory.md in sync) ------------------ */
+  /* What we can actually deliver. Cloud is AWS + Snowflake only. */
   services: [
     {
-      id: "engineering",
-      icon: "layers",
-      name: "Data Engineering",
-      blurb: "Reliable pipelines and modern warehouses, so every number downstream can be trusted.",
-      items: [
-        "ETL / ELT pipelines",
-        "Data warehouse & lakehouse build",
-        "Real-time & streaming data",
-        "Data migration & modernisation",
-      ],
-      deliverables: ["Orchestrated pipelines", "Modelled warehouse", "Runbooks & docs"],
-    },
-    {
-      id: "analytics",
+      id: "dashboards",
       icon: "chart",
-      name: "Analytics & BI",
-      blurb: "Dashboards and KPI systems leadership actually opens — and acts on.",
+      name: "Dashboard Design",
+      blurb: "Power BI dashboards and KPI packs that a team will actually open.",
       items: [
         "Executive & operational dashboards",
-        "KPI frameworks & semantic layers",
-        "Self-serve analytics",
-        "Deep-dive & ad-hoc analysis",
+        "KPI models and DAX",
+        "Business reporting",
+        "Stakeholder-ready views",
       ],
-      deliverables: ["Live dashboards", "KPI dictionary", "Stakeholder training"],
+      deliverables: ["Live dashboard", "KPI notes", "Walkthrough"],
+    },
+    {
+      id: "data",
+      icon: "layers",
+      name: "Data Solutions",
+      blurb: "End-to-end data work: ingest, transform, validate, and serve. Cloud work is on AWS and Snowflake.",
+      items: [
+        "ETL / ELT pipelines",
+        "Warehousing, modelling, Snowflake & dbt",
+        "Kafka and CDC ingestion",
+        "AWS data platform (Glue, Athena, S3, ECS)",
+      ],
+      deliverables: ["Working pipeline", "Modelled tables", "Run notes"],
+    },
+    {
+      id: "research",
+      icon: "search",
+      name: "Research Analytics",
+      blurb: "Structured research when the question is not a standing dashboard — including public and competitor sources.",
+      items: [
+        "Market & competitor research",
+        "Public data collection",
+        "Comparison datasets",
+        "Decision-ready write-ups",
+      ],
+      deliverables: ["Clean dataset", "Comparison base", "Findings note"],
+    },
+    {
+      id: "product",
+      icon: "code",
+      name: "Product Analytics",
+      blurb: "How a product is searched, priced, specified, and used.",
+      items: [
+        "Funnel & usage analysis",
+        "Price comparisons",
+        "Spec & catalogue analysis",
+        "Readouts for product teams",
+      ],
+      deliverables: ["Analysis pack", "Comparison base", "Recommendations"],
+    },
+    {
+      id: "customer",
+      icon: "users",
+      name: "Customer Analytics",
+      blurb: "Profiles, segments, and retention questions answered from the data you already have.",
+      items: [
+        "Customer profiling",
+        "Segmentation",
+        "Churn & retention analysis",
+        "Campaign measurement",
+      ],
+      deliverables: ["Segment definitions", "Profile tables", "Readout"],
+    },
+    {
+      id: "people",
+      icon: "shield",
+      name: "People Analytics",
+      blurb: "Operational and workforce questions turned into reporting a manager can use.",
+      items: [
+        "Operational reporting",
+        "Process metrics",
+        "Workforce views",
+        "Management packs",
+      ],
+      deliverables: ["Metric pack", "Process view", "Review notes"],
     },
     {
       id: "ai",
       icon: "spark",
-      name: "Data Science & AI",
-      blurb: "Forecasts, models and GenAI that move a metric you already track.",
+      name: "AI & Machine Learning",
+      blurb: "Applied models where the data and the question support them — classification, forecasting, and sequence models.",
       items: [
-        "Predictive modelling & forecasting",
-        "GenAI, RAG & copilots",
-        "NLP & computer vision",
-        "MLOps & model monitoring",
+        "Classification models",
+        "Forecasting & sequence models",
+        "Deep learning prototypes",
+        "Evaluation write-ups",
       ],
-      deliverables: ["Production models", "Evaluation reports", "Monitoring & retraining"],
+      deliverables: ["Working model", "Evaluation note", "Handover"],
     },
     {
-      id: "software",
-      icon: "code",
-      name: "Data Products & Software",
-      blurb: "Apps, APIs and automations built directly on top of your data.",
+      id: "eda",
+      icon: "chart",
+      name: "Exploratory Data Analytics",
+      blurb: "A first pass on a dataset: what is in it, what is messy, and what is worth modelling.",
       items: [
-        "Web apps & internal tools",
-        "APIs & system integrations",
-        "Workflow automation",
-        "Embedded / customer-facing analytics",
+        "Data profiling",
+        "Quality & deduplication checks",
+        "Pattern finding",
+        "Analysis briefs",
       ],
-      deliverables: ["Deployed application", "API documentation", "CI/CD pipeline"],
-    },
-    {
-      id: "cloud",
-      icon: "cloud",
-      name: "Cloud & Platform",
-      blurb: "Secure, cost-aware infrastructure on the cloud you already use.",
-      items: [
-        "AWS / Azure / GCP architecture",
-        "Snowflake, Databricks & BigQuery",
-        "DevOps & CI/CD for data",
-        "FinOps & cost optimisation",
-      ],
-      deliverables: ["Architecture diagrams", "Infrastructure as code", "Cost dashboard"],
-    },
-    {
-      id: "governance",
-      icon: "shield",
-      name: "Governance & Acquisition",
-      blurb: "Clean, compliant, well-documented data — including data you don't have yet.",
-      items: [
-        "Data quality & observability",
-        "Security, PII & compliance",
-        "Web scraping & data acquisition",
-        "Cataloguing & documentation",
-      ],
-      deliverables: ["Quality checks", "Access policies", "Data catalogue"],
+      deliverables: ["Profile report", "Quality notes", "Next-step brief"],
     },
   ],
 
   process: [
-    { n: "01", name: "Discover", text: "We audit your sources, questions and constraints, then define the KPIs that matter.", out: "Scope & KPI map" },
-    { n: "02", name: "Design", text: "Architecture, data model and a clickable prototype — agreed before we build.", out: "Blueprint & prototype" },
-    { n: "03", name: "Build", text: "Weekly demos against one shared backlog. You see working software every week.", out: "Working increments" },
-    { n: "04", name: "Deploy", text: "Production release with tests, monitoring, documentation and a proper handover.", out: "Live system & docs" },
-    { n: "05", name: "Operate", text: "Optional retainer: we keep pipelines green, models fresh and the roadmap moving.", out: "Ongoing support" },
+    { n: "01", name: "Discover", text: "We look at the sources, the question, and the constraints, then agree what a useful first version is.", out: "Scope & questions" },
+    { n: "02", name: "Design", text: "Data model, approach, and a sketch of the output — agreed before the build gets large.", out: "Approach note" },
+    { n: "03", name: "Build", text: "A first working demo within 3 weeks when the solution is feasible and the complete requirement is in hand.", out: "Working demo" },
+    { n: "04", name: "Deliver", text: "Handover with the dataset or dashboard, notes on how it was built, and what to watch.", out: "Handover" },
+    { n: "05", name: "Support", text: "Optional follow-on: keep a pipeline healthy, refresh a model, or take the next question.", out: "Follow-on" },
   ],
 
   industries: [
-    "Retail & eCommerce", "Fintech & BFSI", "Healthcare", "SaaS & Tech", "Logistics & Supply chain",
-    "Manufacturing", "Real estate", "Marketing & Media", "Education", // TODO: confirm / trim to your real experience
+    "Booking & search",
+    "Pricing",
+    "Customer analytics",
+    "Business reporting",
+    "ESG reporting",
+    "Finance & compliance",
+    "Logistics & operations",
   ],
 
   stack: [
-    "Python", "SQL", "dbt", "Airflow", "Spark", "Kafka", "Snowflake", "BigQuery", "Databricks", "PostgreSQL",
-    "AWS", "Azure", "GCP", "Power BI", "Tableau", "Looker", "Metabase", "Superset", "React", "Next.js",
-    "FastAPI", "Node.js", "Docker", "Terraform", "scikit-learn", "PyTorch", "OpenAI", "LangChain", // TODO: trim to what you truly use
+    "Python", "SQL", "PySpark", "Pandas", "AWS", "Glue", "Athena", "S3", "Kafka",
+    "Snowflake", "dbt", "Power BI", "PostgreSQL", "Tableau",
   ],
 
-  /* Case studies. Sample content — replace with real projects. Metrics are optional:
-     metrics: [{ v: "−38%", k: "Reporting time" }] */
   projects: [
-    { title: "Retail demand forecasting", client: "Retail client", category: "AI & ML", year: "2026", summary: "Store-level forecasting model feeding replenishment decisions, with monitoring and automated retraining.", stack: ["Python", "scikit-learn", "Airflow"], metrics: [], todo: "Replace with a real case study" },
-    { title: "Executive revenue cockpit", client: "SaaS client", category: "Analytics & BI", year: "2026", summary: "One governed KPI layer powering board, sales and finance dashboards from a single source of truth.", stack: ["dbt", "Snowflake", "Power BI"], metrics: [], todo: "Replace with a real case study" },
-    { title: "Customer 360 platform", client: "D2C client", category: "Data Engineering", year: "2026", summary: "Unified customer profile across web, CRM and payments, refreshed hourly with quality gates.", stack: ["Kafka", "BigQuery", "dbt"], metrics: [], todo: "Replace with a real case study" },
-    { title: "Invoice-to-insight automation", client: "Services client", category: "Automation", year: "2026", summary: "Document ingestion, extraction and reconciliation replacing a manual weekly process.", stack: ["Python", "FastAPI", "OpenAI"], metrics: [], todo: "Replace with a real case study" },
-    { title: "Warehouse migration", client: "Logistics client", category: "Data Engineering", year: "2026", summary: "Legacy on-prem reporting moved to a cost-controlled cloud lakehouse without downtime.", stack: ["Databricks", "AWS", "Terraform"], metrics: [], todo: "Replace with a real case study" },
-    { title: "Support knowledge copilot", client: "B2B client", category: "AI & ML", year: "2026", summary: "Retrieval-augmented assistant answering from internal docs with citations and guardrails.", stack: ["LangChain", "PostgreSQL", "Next.js"], metrics: [], todo: "Replace with a real case study" },
+    {
+      title: "Competitor pricing & spec base",
+      category: "Pricing analytics",
+      year: "Independent",
+      summary:
+        "An independent project for a commercial team. Public competitor listings were collected and cleaned into a comparison base — price, plus the other product specs buyers weigh next to price. The team used that base to set its own prices and adjust related product details. The organisation is not named.",
+      stack: ["Python", "SQL", "Web extraction"],
+      metrics: [],
+    },
+    {
+      title: "Customer profiling for a fitness range",
+      category: "Customer analytics",
+      year: "Independent",
+      summary:
+        "A SQL pipeline joined customer, product, and usage tables for a fitness-equipment range. Descriptive statistics and probability — including conditional probability — showed which segments were more likely to buy higher-end products. The company is not named.",
+      stack: ["SQL", "Python"],
+      metrics: [{ v: "30%", k: "Higher-end purchase lift, ages 25–30" }],
+    },
+    {
+      title: "Deep learning for marble defect classification",
+      category: "AI & ML",
+      year: "Writing",
+      summary:
+        "A published note on using deep learning to classify defects in marble. Technical write-up, not a client engagement.",
+      stack: ["Python", "Deep learning"],
+      metrics: [],
+      href: "https://medium.com/@rishirajak/deep-learning-for-marble-defect-classification-f7928d077056",
+      linkLabel: "Read on Medium",
+    },
+    {
+      title: "Flower classification with the Sequential API",
+      category: "AI & ML",
+      year: "Writing",
+      summary:
+        "A published note on classifying flowers with a Sequential API deep-learning model. Technical write-up, not a client engagement.",
+      stack: ["Python", "Deep learning"],
+      metrics: [],
+      href: "https://medium.com/@rishirajak/classifying-flower-through-sequential-api-deep-learning-192a2c28959b",
+      linkLabel: "Read on Medium",
+    },
+    {
+      title: "Share-price prediction with RNN and LSTM",
+      category: "AI & ML",
+      year: "Writing",
+      summary:
+        "A published note on modelling a share-price series with RNN and LSTM. Technical write-up, not a client engagement.",
+      stack: ["Python", "RNN", "LSTM"],
+      metrics: [],
+      href: "https://medium.com/@rishirajak/share-price-prediction-using-rnn-and-lstm-8776456dea6f",
+      linkLabel: "Read on Medium",
+    },
   ],
 
-  /* The three founders. Hardik is filled from your profile; partners are placeholders. */
   team: [
     {
-      name: "Hardik",
-      role: "Co-founder · Software & Data Products",
-      bio: "Builds the applications, APIs and automations that sit on top of your data — from first prototype to production.",
-      skills: ["Full-stack", "APIs", "Automation"],
-      links: { linkedin: "", github: "", portfolio: "" },
-      photo: "",
-      todo: "Hardik: surname, photo, 2-line bio, links",
+      name: "Rishi Rajak",
+      focus: "Dashboards · ESG · Strategy",
+      bio: "Business intelligence professional with experience in analytics, data visualisation, ESG reporting, and business strategy. Specialises in turning complex datasets into dashboards, reporting frameworks, and decisions. MBA in Data Science & Data Analytics, with a background across business intelligence, consulting, and engineering.",
+      skills: ["Dashboards", "ESG reporting", "Visualisation", "Strategy"],
+      links: { medium: "https://medium.com/@rishirajak" },
     },
     {
-      name: "Partner Two",
-      role: "Co-founder · Data Engineering & Cloud",
-      bio: "Designs the pipelines, warehouses and cloud platforms that keep every dashboard fast, cheap and correct.",
-      skills: ["Pipelines", "Warehousing", "Cloud"],
-      links: { linkedin: "", github: "", portfolio: "" },
-      photo: "",
-      todo: "Partner 2: name, role, photo, bio, links",
+      name: "Hardik Bindlish",
+      focus: "ETL · Python · Power BI",
+      bio: "BI and data engineer with experience building scalable data pipelines, analytics solutions, and business intelligence frameworks. Works in SQL, Python, PySpark, AWS, and Power BI, turning complex data into analysis that supports decisions. Covers ETL, process automation, data optimisation, and analytics-driven business work.",
+      skills: ["SQL", "Python", "PySpark", "AWS", "Power BI"],
+      links: {},
     },
     {
-      name: "Partner Three",
-      role: "Co-founder · Analytics, BI & AI",
-      bio: "Turns messy data into KPIs, forecasts and models the business can use to make better decisions.",
-      skills: ["BI", "Modelling", "ML"],
-      links: { linkedin: "", github: "", portfolio: "" },
-      photo: "",
-      todo: "Partner 3: name, role, photo, bio, links",
+      name: "Aman Mishra",
+      focus: "Pipelines · Warehousing · Analytics",
+      bio: "Data product specialist with 5+ years in data engineering, analytics, and business intelligence. Builds end-to-end pipelines — ingestion, transformation, processing, validation, and analytics — on AWS (Glue, Athena, S3, ECS), Kafka and CDC, PySpark, SQL, Snowflake, dbt, and Power BI. Covers warehousing, data modelling, large-scale transformation and deduplication, production troubleshooting, and automated collection of public and competitor data. Domain work includes booking, search, pricing, customer analytics, and business reporting.",
+      skills: ["AWS", "PySpark", "Kafka", "Snowflake", "dbt", "Power BI"],
+      links: {},
+    },
+    {
+      name: "Megha Diwakar",
+      focus: "Controls · Risk · Compliance",
+      bio: "Internal audit and risk compliance professional with experience in finance, accounting, logistics, and operational processes. Specialises in internal controls, risk assessment, compliance monitoring, and process improvement — finding operational gaps and putting workable controls in place.",
+      skills: ["Internal controls", "Risk assessment", "Compliance", "Process improvement"],
+      links: {},
     },
   ],
 
-  /* Shown ONLY in ?review=1 mode while `sample: true` — never show invented quotes publicly. */
-  testimonials: [
-    { quote: "Sample testimonial — replace with a real client quote.", name: "Client name", role: "Title, Company", sample: true, todo: "Real testimonials (with permission)" },
-    { quote: "Sample testimonial — replace with a real client quote.", name: "Client name", role: "Title, Company", sample: true, todo: "Real testimonials (with permission)" },
-  ],
+  testimonials: [],
 
   engagement: [
-    { name: "Discovery sprint", length: "1–2 weeks", text: "Audit sources, define KPIs, agree architecture and walk away with a build plan and estimate.", points: ["Source & KPI audit", "Target architecture", "Roadmap & estimate"], todo: "Confirm durations & pricing model" },
-    { name: "Fixed-scope build", length: "4–12 weeks", text: "A clearly scoped product, pipeline or dashboard suite with weekly demos and a clean handover.", points: ["Fixed scope & price", "Weekly demos", "Docs & handover"], featured: true, todo: "Confirm durations & pricing model" },
-    { name: "Dedicated pod", length: "Monthly", text: "The three of us as your embedded data team — ongoing delivery, support and roadmap steering.", points: ["Flexible capacity", "Priority support", "Quarterly roadmap"], todo: "Confirm durations & pricing model" },
+    {
+      name: "Discovery sprint",
+      length: "Before build",
+      text: "Look at the sources and the question, then leave with an approach and a quote before any build starts.",
+      points: ["Source & question review", "Approach", "Quote"],
+    },
+    {
+      name: "Fixed-scope build",
+      length: "First demo in 3 weeks",
+      text: "A defined pipeline, dashboard, dataset, or model. First working demo within 3 weeks when the solution is feasible and the complete requirement is provided.",
+      points: ["Agreed scope", "Working demo", "Notes & handover"],
+      featured: true,
+    },
+    {
+      name: "Follow-on support",
+      length: "After delivery",
+      text: "Stay on after handover — keep a pipeline healthy, refresh a report, or take the next question.",
+      points: ["Flexible follow-on", "Same-day replies", "Next-question planning"],
+    },
   ],
 
   faq: [
-    { q: "Do you only build dashboards?", a: "No. Dashboards are one surface. We also build the pipelines, models, applications and cloud platform behind them, so everything shares one foundation." },
-    { q: "How does a project start?", a: "A short call, then a discovery sprint (or a written proposal for well-defined work). You get scope, timeline and cost before committing to a build." },
-    { q: "Which tools and clouds do you work with?", a: "We work with the stack you already have — AWS, Azure or GCP, Snowflake, Databricks, BigQuery, Power BI, Tableau and more — and recommend changes only when they pay off." },
-    { q: "Will you sign an NDA?", a: "Yes. We are happy to sign your NDA before any detailed discussion of your data or systems." },
-    { q: "Which time zones do you cover?", a: "We are based in India (IST) and arrange overlap for European and US teams by agreement.", todo: "Confirm overlap hours you can really offer" },
-    { q: "How do you price work?", a: "Fixed price for scoped projects, monthly for retainers. We will always quote before starting.", todo: "Confirm pricing approach / currencies" },
+    {
+      q: "Do you only build dashboards?",
+      a: "No. Dashboards are one service. We also build pipelines, research datasets, customer and product analysis, and machine-learning models.",
+    },
+    {
+      q: "How does a project start?",
+      a: "Email info@cleverinsightanalytics.com. We reply usually within the same day. You get scope and a quote before a build starts.",
+    },
+    {
+      q: "When is the first demo?",
+      a: "Within 3 weeks, when the solution is feasible and the complete requirement has been provided.",
+    },
+    {
+      q: "Which tools and cloud do you work with?",
+      a: "SQL, Python, PySpark, Kafka, dbt, Snowflake, Power BI, and AWS (Glue, Athena, S3, ECS). Cloud work is on AWS and Snowflake.",
+    },
+    {
+      q: "Will you sign an NDA?",
+      a: "Yes. We sign an NDA before any detailed discussion of your data or systems. Client and organisation names are not published.",
+    },
+    {
+      q: "Which time zones do you cover?",
+      a: "We are based in India (IST) and arrange overlap for European and US teams by agreement.",
+    },
+    {
+      q: "How do you price work?",
+      a: "We quote before starting. Fixed price for a scoped project; follow-on work is agreed separately.",
+    },
   ],
 
-  /* Master checklist — also mirrored in /memory.md */
   todo: [
-    "Real phone / WhatsApp number",
-    "Calendly / Cal.com booking link",
-    "Form endpoint (Formspree / Basin / Web3Forms)",
-    "LinkedIn, GitHub, Upwork / Clutch profile URLs",
-    "Founder names, roles, photos, bios, personal links",
-    "2–3 real case studies (+ metrics, logos only with permission)",
-    "Real testimonials",
-    "Logo files and brand colours (if you already have them)",
-    "Pricing model, response-time and overlap promises",
-    "Final domain, analytics (GA4 / Plausible), OG share image",
+    "Logo files (the site uses the CIA wordmark until then)",
+    "Team photos",
+    "Company LinkedIn page URL",
+    "Form endpoint, if the on-page form should stop opening the email app",
   ],
 };
