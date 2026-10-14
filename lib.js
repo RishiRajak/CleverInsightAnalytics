@@ -2,13 +2,14 @@
 (function () {
   const C = window.CIA;
   const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const $ = (s, r = document) => r.querySelector(s); const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
   const esc = (s) =>
     String(s == null ? "" : s).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
   
   const hl = (s) => esc(s).replace(/\[(.+?)\]/g, "<em>$1</em>");
-  const todo = (t) => (t ? ` data-todo="${esc(t)}"` : "");
+  const todo = (t) => (t ? ' data-todo="' + esc(t) + '"' : "");
   const initials = (n) => String(n).split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
   const pad = (n) => String(n).padStart(2, "0");
 
@@ -88,12 +89,23 @@
   };
 
   function copy(obj, root = document) {
-    $$("[data-copy]", root).forEach((el) => { const v = obj[el.dataset.copy]; if (v != null) el.textContent = v; }); $$
-("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); });
+    $$("[data-copy]", root).forEach((el) => { const v = obj[el.dataset.copy]; if (v != null) el.textContent = v; });
+    $$("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); });
   }
 
   function reveal() {
-    const els = $$("[data-reveal]"); if (REDUCED \vert{}\vert{} !("IntersectionObserver" in window)) return els.forEach((e) => e.classList.add("in")); const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }); els.forEach((e) => { const r = e.getBoundingClientRect(); if (r.top < innerHeight * 0.95 && r.bottom > 0) { e.classList.add("in"); return; } io.observe(e); }); }    function countUp() { $$("[data-count]").forEach((el) => {
+    const els = $$("[data-reveal]");
+    if (REDUCED || !("IntersectionObserver" in window)) return els.forEach((e) => e.classList.add("in"));
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    els.forEach((e) => {
+      const r = e.getBoundingClientRect();
+      if (r.top < innerHeight * 0.95 && r.bottom > 0) { e.classList.add("in"); return; }
+      io.observe(e);
+    });
+  }
+
+  function countUp() {
+    $$("[data-count]").forEach((el) => {
       const to = +el.dataset.count, suf = el.dataset.suffix || "";
       if (REDUCED) { el.textContent = to + suf; return; }
       const io = new IntersectionObserver(([e]) => {
@@ -112,8 +124,39 @@
   }
 
   function spotlight(sel) {
-    $$(sel).forEach((el) => { el.addEventListener("pointermove", (e) => { const r = el.getBoundingClientRect(); el.style.setProperty("--mx", e.clientX - r.left + "px"); el.style.setProperty("--my", e.clientY - r.top + "px"); }); }); }    function menu(btn, nav) { if (!btn \vert{}\vert{} !nav) return; const set = (o) => { nav.classList.toggle("open", o); btn.setAttribute("aria-expanded", String(o)); document.body.classList.toggle("menu-open", o); }; btn.setAttribute("aria-expanded", "false"); btn.addEventListener("click", () => set(!nav.classList.contains("open"))); nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); }); document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); }); }    function progress(el) { if (!el) return; const f = () => { const h = document.documentElement; el.style.transform = "scaleX(" + Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) + ")"; }; addEventListener("scroll", f, { passive: true }); f(); }    function marquee(el, items, render) { if (!el) return; const html = items.map(render).join(""); el.innerHTML = '<div class="track">' + html + html + '</div>'; $$
-(".track > *", el).forEach((n, i) => { if (i >= items.length) n.setAttribute("aria-hidden", "true"); });
+    $$(sel).forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", e.clientX - r.left + "px");
+        el.style.setProperty("--my", e.clientY - r.top + "px");
+      });
+    });
+  }
+
+  function menu(btn, nav) {
+    if (!btn || !nav) return;
+    const set = (o) => { nav.classList.toggle("open", o); btn.setAttribute("aria-expanded", String(o)); document.body.classList.toggle("menu-open", o); };
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("click", () => set(!nav.classList.contains("open")));
+    nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+  }
+
+  function progress(el) {
+    if (!el) return;
+    const f = () => {
+      const h = document.documentElement;
+      el.style.transform = "scaleX(" + Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) + ")";
+    };
+    addEventListener("scroll", f, { passive: true });
+    f();
+  }
+
+  function marquee(el, items, render) {
+    if (!el) return;
+    const html = items.map(render).join("");
+    el.innerHTML = '<div class="track">' + html + html + '</div>';
+    $$(".track > *", el).forEach((n, i) => { if (i >= items.length) n.setAttribute("aria-hidden", "true"); });
   }
 
   function form(f) {
@@ -124,7 +167,10 @@
       e.preventDefault();
       const d = Object.fromEntries(new FormData(f));
       if (d.company_site) return;
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.email \vert{}\vert{} "").trim()); const nameOk = String(d.name \vert{}\vert{} "").trim().length > 1; $$("input[name=name],input[name=email]", f).forEach((i) => i.removeAttribute("aria-invalid"));
+      const em = String(d.email || "").trim();
+      const emailOk = em.indexOf("@") > 0 && em.indexOf(".") > em.indexOf("@");
+      const nameOk = String(d.name || "").trim().length > 1;
+      $$("input[name=name],input[name=email]", f).forEach((i) => i.removeAttribute("aria-invalid"));
       if (!nameOk || !emailOk) {
         const bad = $(!nameOk ? "input[name=name]" : "input[name=email]", f);
         bad.setAttribute("aria-invalid", "true");
@@ -168,8 +214,9 @@
   }
 
   function boot(opts = {}) {
-    $$("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear())); const cta = C.contact.calendly \vert{}\vert{} ("mailto:" + C.contact.email + "?subject=" + encodeURIComponent("Project enquiry")); $$
-("[data-book]").forEach((a) => {
+    $$("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear()));
+    const cta = C.contact.calendly || ("mailto:" + C.contact.email + "?subject=" + encodeURIComponent("Project enquiry"));
+    $$("[data-book]").forEach((a) => {
       a.href = cta;
       if (!String(cta).startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
     });
@@ -182,5 +229,5 @@
     schema();
   }
 
-  window.CIAKit = { C, REDUCED, $,$$, esc, hl, todo, initials, pad, icon, cover, copy, counts, stats, socials, marquee, boot };
+  window.CIAKit = { C, REDUCED, $, $$, esc, hl, todo, initials, pad, icon, cover, copy, counts, stats, socials, marquee, boot };
 })();
