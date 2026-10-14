@@ -1,5 +1,5 @@
 (function () {
-  const K = window.CIAKit, C = K.C, { $, $$, esc, icon, todo, pad } = K;
+  const K = window.CIAKit, C = K.C, { $,$$, esc, icon, todo, pad } = K;
   K.copy(C.heroes.aurora);
 
   $("#status").textContent = C.status;
@@ -47,7 +47,7 @@
       <div class="pb"><span class="cat">${esc(p.category)}${p.year ? ` · ${esc(p.year)}` : ""}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
       ${p.metrics && p.metrics.length ? `<div class="mets">${p.metrics.map((x) => `<div><b>${esc(x.v)}</b><small>${esc(x.k)}</small></div>`).join("")}</div>` : ""}
       <div class="stk">${p.stack.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
-      ${p.href ? `<a class="soon" href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.linkLabel || "Read")} ${icon("arrow", 14)}</a>` : `<span class="soon">Organisation not named</span>`}</div></article>`)
+      ${p.href ? `<a class="soon" href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.linkLabel \vert{}\vert{} "Read")} ${icon("arrow", 14)}</a>` : `<span class="soon">Organisation not named</span>`}</div></article>`)
     .join("");
   const rail = $("#rail");
   const step = () => Math.min(420, rail.clientWidth * 0.85);
@@ -83,8 +83,8 @@
       <a class="${p.featured ? "glow" : "ghost"}" href="#contact" data-book>Discuss this</a></article>`)
     .join("");
 
-  /* testimonials: real only, or samples in review mode */
-  const quotes = C.testimonials.filter((t) => !t.sample || K.REVIEW);
+  /* testimonials: show all 5 example testimonials unconditionally */
+  const quotes = C.testimonials || [];
   if (quotes.length) {
     $("#voices").hidden = false;
     $("#quotes").innerHTML = quotes.map((t) => `<blockquote${todo(t.todo)}>“${esc(t.quote)}”<cite>${esc(t.name)}<small>${esc(t.role)}</small></cite></blockquote>`).join("");
