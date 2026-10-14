@@ -201,12 +201,21 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (review mode only until real quotes exist) -->
+    <!-- TESTIMONIALS -->
     <section class="sec" id="voices" hidden>
       <div class="wrap">
-        <header class="sec-head center"><p class="eyebrow">Client voices</p><h2>What clients <span class="grad">say.</span></h2></header>
-        <div class="quotes" id="quotes"></div>
+        <header class="sec-head split" data-reveal>
+          <div>
+            <p class="eyebrow">Client voices</p>
+            <h2>What clients <span class="grad">say.</span></h2>
+          </div>
+          <div class="arrows">
+            <button type="button" class="ghost sq" id="prev-quote" aria-label="Previous testimonials">←</button>
+            <button type="button" class="ghost sq" id="next-quote" aria-label="Next testimonials">→</button>
+          </div>
+        </header>
       </div>
+      <div class="quotes" id="quotes" tabindex="0" aria-label="Testimonials"></div>
     </section>
 
     <!-- FAQ -->
