@@ -7,17 +7,14 @@
   $("#resp").textContent = C.contact.responseTime;
   $("#foot-tag").textContent = C.brand.tagline;
 
-  /* stack marquee: two counter-moving rows */
   const half = Math.ceil(C.stack.length / 2);
   K.marquee($("#stack1"), C.stack.slice(0, half), (s) => `<span>${esc(s)}</span>`);
   K.marquee($("#stack2"), C.stack.slice(half), (s) => `<span>${esc(s)}</span>`);
 
-  /* stats */
   $("#stats").innerHTML = K.stats()
     .map((s) => `<div class="stat spot" data-reveal${todo(s.todo)}><b><span data-count="${s.value}" data-suffix="${esc(s.suffix || "")}">0${esc(s.suffix || "")}</span></b><span class="l">${esc(s.label)}</span></div>`)
     .join("");
 
-  /* bento */
   $("#bento").innerHTML = C.services
     .map((s, i) => `<article class="bc spot" data-reveal style="--d:${(i % 3) * 0.08}s">
       <div><div class="bic">${icon(s.icon, 24)}</div></div>
@@ -26,7 +23,6 @@
       <div class="outr">${s.deliverables.map((d) => `<span>${esc(d)}</span>`).join("")}</div></article>`)
     .join("");
 
-  /* timeline with scroll-linked progress */
   const tl = $("#tl");
   tl.innerHTML = C.process
     .map((p, i) => `<li data-n="${p.n}" data-reveal style="--d:${i * 0.05}s"><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p><span class="o">${esc(p.out)}</span></li>`)
@@ -40,7 +36,6 @@
   }
   addEventListener("scroll", prog, { passive: true }); prog();
 
-  /* work rail */
   $("#rail").innerHTML = C.projects
     .map((p, i) => `<article class="pj spot"${todo(p.todo)}>
       <div class="cover" aria-hidden="true">${K.cover(i)}</div>
@@ -49,6 +44,7 @@
       <div class="stk">${p.stack.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
       ${p.href ? `<a class="soon" href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.linkLabel \vert{}\vert{} "Read")} ${icon("arrow", 14)}</a>` : `<span class="soon">Organisation not named</span>`}</div></article>`)
     .join("");
+  
   const rail = $("#rail");
   const step = () => Math.min(420, rail.clientWidth * 0.85);
   $("#next").addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
@@ -58,16 +54,15 @@
     if (e.key === "ArrowLeft") rail.scrollBy({ left: -step(), behavior: "smooth" });
   });
 
-  /* industries */
   $("#inds").innerHTML = C.industries.map((x) => `<li>${esc(x)}</li>`).join("");
 
-  /* team — capability lines, never job titles or employers */
   const links = (m) => {
     const map = [["linkedin", "LinkedIn"], ["github", "GitHub"], ["portfolio", "Portfolio"], ["medium", "Medium"]];
     const L = map.filter(([k]) => m.links && m.links[k]).map(([k, l]) => `<a href="${esc(m.links[k])}" target="_blank" rel="noopener">${l}</a>`);
     L.push(`<a href="#work">Selected work</a>`);
     return L.join("");
   };
+  
   $("#crew").innerHTML = C.team
     .map((m, i) => `<article class="member spot" data-reveal style="--d:${i * 0.1}s"${todo(m.todo)}>
       <div class="avatar"><div>${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy"/>` : esc(K.initials(m.name))}</div></div>
@@ -75,7 +70,6 @@
       <div class="skills">${m.skills.map((s) => `<span>${esc(s)}</span>`).join("")}</div><div class="mlinks">${links(m)}</div></article>`)
     .join("");
 
-  /* plans */
   $("#plans").innerHTML = C.engagement
     .map((p, i) => `<article class="plan${p.featured ? " feat" : " spot"}" data-reveal style="--d:${i * 0.1}s"${todo(p.todo)}>
       <span class="len">${esc(p.length)}</span><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p>
@@ -83,12 +77,12 @@
       <a class="${p.featured ? "glow" : "ghost"}" href="#contact" data-book>Discuss this</a></article>`)
     .join("");
 
-  /* testimonials rail */
   const quotes = C.testimonials || [];
   if (quotes.length) {
     $("#voices").hidden = false;
     $("#quotes").innerHTML = quotes.map((t) => `<blockquote${todo(t.todo)}>“${esc(t.quote)}”<cite>${esc(t.name)}<small>${esc(t.role)}</small></cite></blockquote>`).join("");
   }
+  
   const quoteRail = $("#quotes");
   if (quoteRail) {
     const quoteStep = () => Math.min(440, quoteRail.clientWidth * 0.85);
@@ -101,25 +95,24 @@
     });
   }
 
-  /* faq */
   $("#faq-list").innerHTML = C.faq.map((f, i) => `<details${i === 0 ? " open" : ""}${todo(f.todo)}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("");
 
-  /* contact */
   const phones = String(C.contact.phone || "")
     .split("·")
     .map((n) => n.trim())
     .filter(Boolean)
     .map((n) => `<a href="tel:${esc(n.replace(/[^\d+]/g, ""))}">${esc(n)}</a>`)
     .join("<br>");
+    
   $("#facts").innerHTML = `
     <li>${icon("mail", 20)}<a href="mailto:${esc(C.contact.email)}">${esc(C.contact.email)}</a></li>
     ${phones ? `<li>${icon("phone", 20)}<span>${phones}</span></li>` : ""}
     <li>${icon("pin", 20)}<span>${esc(C.contact.location)}</span></li>
     ${C.contact.hours ? `<li>${icon("clock", 20)}<span>${esc(C.contact.hours)}</span></li>` : ""}`;
+    
   $("#service-select").innerHTML = `<option value="">Not sure yet</option>` + C.services.map((s) => `<option>${esc(s.name)}</option>`).join("") + `<option>More than one of these</option>`;
   $("#social").innerHTML = K.socials().map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("");
 
-  /* product mock: tabs + gentle autoplay until the visitor interacts */
   const tabs = $$("#app .app-tabs button"), panes = $$("#app .pane");
   let cur = 0, timer, userTouched = false;
   function select(i, focus) {
@@ -128,12 +121,14 @@
     panes.forEach((p, j) => { p.hidden = j !== i; p.classList.toggle("on", j === i); });
     if (focus) tabs[i].focus();
   }
+  
   tabs.forEach((t, i) => t.addEventListener("click", () => { userTouched = true; clearInterval(timer); select(i); }));
   $("#app .app-tabs").addEventListener("keydown", (e) => {
     let i = cur;
     if (e.key === "ArrowRight") i = (cur + 1) % tabs.length; else if (e.key === "ArrowLeft") i = (cur - 1 + tabs.length) % tabs.length; else return;
     e.preventDefault(); userTouched = true; clearInterval(timer); select(i, true);
   });
+  
   if (!K.REDUCED) {
     const app = $("#app");
     const start = () => { if (!userTouched) timer = setInterval(() => select((cur + 1) % tabs.length), 5200); };
