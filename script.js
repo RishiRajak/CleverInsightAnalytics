@@ -83,11 +83,22 @@
       <a class="${p.featured ? "glow" : "ghost"}" href="#contact" data-book>Discuss this</a></article>`)
     .join("");
 
-  /* testimonials: show all 5 example testimonials unconditionally */
+  /* testimonials rail */
   const quotes = C.testimonials || [];
   if (quotes.length) {
     $("#voices").hidden = false;
     $("#quotes").innerHTML = quotes.map((t) => `<blockquote${todo(t.todo)}>“${esc(t.quote)}”<cite>${esc(t.name)}<small>${esc(t.role)}</small></cite></blockquote>`).join("");
+  }
+  const quoteRail = $("#quotes");
+  if (quoteRail) {
+    const quoteStep = () => Math.min(440, quoteRail.clientWidth * 0.85);
+    const nextQ = $("#next-quote"), prevQ = $("#prev-quote");
+    if (nextQ) nextQ.addEventListener("click", () => quoteRail.scrollBy({ left: quoteStep(), behavior: "smooth" }));
+    if (prevQ) prevQ.addEventListener("click", () => quoteRail.scrollBy({ left: -quoteStep(), behavior: "smooth" }));
+    quoteRail.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") quoteRail.scrollBy({ left: quoteStep(), behavior: "smooth" });
+      if (e.key === "ArrowLeft") quoteRail.scrollBy({ left: -quoteStep(), behavior: "smooth" });
+    });
   }
 
   /* faq */
