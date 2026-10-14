@@ -30,7 +30,7 @@
     users: '<path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   };
   const icon = (n, s = 24) =>
-    `<svg class="ico" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ICONS.spark}</svg>`;
+    '<svg class="ico" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[n] || ICONS.spark) + '</svg>';
 
   const counts = () => ({
     pillars: C.services.length,
@@ -51,7 +51,7 @@
     let body = "";
     if (k === 0) {
       const h = [40, 70, 55, 95, 80, 120, 100, 140, 115, 150, 130, 165];
-      body = h.map((v, x) => `<rect x="${14 + x * 25}" y="${170 - v}" width="15" height="${v}" rx="3" fill="currentColor" opacity="${0.25 + x * 0.06}"/>`).join("");
+      body = h.map((v, x) => '<rect x="' + (14 + x * 25) + '" y="' + (170 - v) + '" width="15" height="' + v + '" rx="3" fill="currentColor" opacity="' + (0.25 + x * 0.06) + '"/>').join("");
     } else if (k === 1) {
       body =
         '<path d="M0 140 C40 120 60 150 100 110 S160 90 200 70 S270 40 320 30 V180 H0Z" fill="currentColor" opacity=".14"/>' +
@@ -67,13 +67,13 @@
       const rows = [[40, 100, 150], [60, 130], [40, 100, 150], [90]];
       let l = "", n = "";
       cols.forEach((x, c) => rows[c].forEach((y, r) => {
-        if (c < 3) rows[c + 1].forEach((y2) => (l += `<path d="M${x} ${y} L${cols[c + 1]} ${y2}" stroke="currentColor" opacity=".18"/>`));
-        n += `<circle cx="${x}" cy="${y}" r="${8 - c}" fill="currentColor" opacity="${0.5 + r * 0.15}"/>`;
+        if (c < 3) rows[c + 1].forEach((y2) => (l += '<path d="M' + x + ' ' + y + ' L' + cols[c + 1] + ' ' + y2 + '" stroke="currentColor" opacity=".18"/>'));
+        n += '<circle cx="' + x + '" cy="' + y + '" r="' + (8 - c) + '" fill="currentColor" opacity="' + (0.5 + r * 0.15) + '"/>';
       }));
       body = l + n;
     } else if (k === 4) {
       for (let r = 0; r < 6; r++) for (let c = 0; c < 16; c++)
-        body += `<rect x="${12 + c * 19}" y="${14 + r * 26}" width="15" height="20" rx="4" fill="currentColor" opacity="${(((c * 7 + r * 13) % 10) / 12 + 0.08).toFixed(2)}"/>`;
+        body += '<rect x="' + (12 + c * 19) + '" y="' + (14 + r * 26) + '" width="15" height="20" rx="4" fill="currentColor" opacity="' + (((c * 7 + r * 13) % 10) / 12 + 0.08).toFixed(2) + '"/>';
     } else {
       let s = 7;
       for (let p = 0; p < 46; p++) {
@@ -81,60 +81,39 @@
         const x = (s / 233280) * 300 + 10;
         s = (s * 9301 + 49297) % 233280;
         const y = (s / 233280) * 150 + 15;
-        body += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${2 + (p % 4)}" fill="currentColor" opacity="${(0.25 + (p % 5) * 0.14).toFixed(2)}"/>`;
+        body += '<circle cx="' + x.toFixed(0) + '" cy="' + y.toFixed(0) + '" r="' + (2 + (p % 4)) + '" fill="currentColor" opacity="' + (0.25 + (p % 5) * 0.14).toFixed(2) + '"/>';
       }
     }
     return head + body + "</svg>";
   };
 
   function copy(obj, root = document) {
-    $$("[data-copy]", root).forEach((el) => { const v = obj[el.dataset.copy]; if (v != null) el.textContent = v; });
-    $$("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); }); }    function reveal() { const els = $$
-("[data-reveal]");
-    if (REDUCED || !("IntersectionObserver" in window)) return els.forEach((e) => e.classList.add("in"));
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    els.forEach((e) => {
-      const r = e.getBoundingClientRect();
-      if (r.top < innerHeight * 0.95 && r.bottom > 0) { e.classList.add("in"); return; }
-      io.observe(e);
+    $$("[data-copy]", root).forEach((el) => { const v = obj[el.dataset.copy]; if (v != null) el.textContent = v; }); $$
+("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); });
+  }
+
+  function reveal() {
+    const els = $$("[data-reveal]"); if (REDUCED \vert{}\vert{} !("IntersectionObserver" in window)) return els.forEach((e) => e.classList.add("in")); const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }); els.forEach((e) => { const r = e.getBoundingClientRect(); if (r.top < innerHeight * 0.95 && r.bottom > 0) { e.classList.add("in"); return; } io.observe(e); }); }    function countUp() { $$("[data-count]").forEach((el) => {
+      const to = +el.dataset.count, suf = el.dataset.suffix || "";
+      if (REDUCED) { el.textContent = to + suf; return; }
+      const io = new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        const t0 = performance.now(), dur = 1400;
+        const tick = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suf;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }, { threshold: 0.6 });
+      io.observe(el);
     });
   }
 
-  function countUp() {
-    $$("[data-count]").forEach((el) => { const to = +el.dataset.count, suf = el.dataset.suffix \vert{}\vert{} ""; if (REDUCED) { el.textContent = to + suf; return; } const io = new IntersectionObserver(([e]) => { if (!e.isIntersecting) return; io.disconnect(); const t0 = performance.now(), dur = 1400; const tick = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }, { threshold: 0.6 }); io.observe(el); }); }    function spotlight(sel) { $$
-(sel).forEach((el) => {
-      el.addEventListener("pointermove", (e) => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--mx", e.clientX - r.left + "px");
-        el.style.setProperty("--my", e.clientY - r.top + "px");
-      });
-    });
-  }
-
-  function menu(btn, nav) {
-    if (!btn || !nav) return;
-    const set = (o) => { nav.classList.toggle("open", o); btn.setAttribute("aria-expanded", String(o)); document.body.classList.toggle("menu-open", o); };
-    btn.setAttribute("aria-expanded", "false");
-    btn.addEventListener("click", () => set(!nav.classList.contains("open")));
-    nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
-  }
-
-  function progress(el) {
-    if (!el) return;
-    const f = () => {
-      const h = document.documentElement;
-      el.style.transform = `scaleX(${Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight))})`;
-    };
-    addEventListener("scroll", f, { passive: true });
-    f();
-  }
-
-  function marquee(el, items, render) {
-    if (!el) return;
-    const html = items.map(render).join("");
-    el.innerHTML = `<div class="track">${html}${html}</div>`;
-    $$(".track > *", el).forEach((n, i) => { if (i >= items.length) n.setAttribute("aria-hidden", "true"); });
+  function spotlight(sel) {
+    $$(sel).forEach((el) => { el.addEventListener("pointermove", (e) => { const r = el.getBoundingClientRect(); el.style.setProperty("--mx", e.clientX - r.left + "px"); el.style.setProperty("--my", e.clientY - r.top + "px"); }); }); }    function menu(btn, nav) { if (!btn \vert{}\vert{} !nav) return; const set = (o) => { nav.classList.toggle("open", o); btn.setAttribute("aria-expanded", String(o)); document.body.classList.toggle("menu-open", o); }; btn.setAttribute("aria-expanded", "false"); btn.addEventListener("click", () => set(!nav.classList.contains("open"))); nav.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); }); document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); }); }    function progress(el) { if (!el) return; const f = () => { const h = document.documentElement; el.style.transform = "scaleX(" + Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) + ")"; }; addEventListener("scroll", f, { passive: true }); f(); }    function marquee(el, items, render) { if (!el) return; const html = items.map(render).join(""); el.innerHTML = '<div class="track">' + html + html + '</div>'; $$
+(".track > *", el).forEach((n, i) => { if (i >= items.length) n.setAttribute("aria-hidden", "true"); });
   }
 
   function form(f) {
@@ -153,20 +132,20 @@
         say(!nameOk ? "Please tell us your name." : "Please enter a valid work email.", false);
         return;
       }
-      const subject = `Project enquiry — ${d.name || "new lead"}`;
-      const body = [`Name: ${d.name || ""}`, `Email: ${d.email || ""}`, `Company: ${d.company || ""}`, `Interested in: ${d.service || ""}`, `Budget: ${d.budget || ""}`, "", d.message || ""].join("\n");
+      const subject = "Project enquiry — " + (d.name || "new lead");
+      const body = ["Name: " + (d.name || ""), "Email: " + (d.email || ""), "Company: " + (d.company || ""), "Interested in: " + (d.service || ""), "Budget: " + (d.budget || ""), "", d.message || ""].join("\n");
       if (C.contact.formEndpoint) {
         try {
           const r = await fetch(C.contact.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) });
           if (!r.ok) throw new Error("bad");
           f.reset();
-          say(`Thanks — we'll reply ${C.contact.responseTime}.`, true);
+          say("Thanks — we'll reply " + C.contact.responseTime + ".", true);
         } catch (_) {
-          say(`Something went wrong. Please email ${C.contact.email} directly.`, false);
+          say("Something went wrong. Please email " + C.contact.email + " directly.", false);
         }
         return;
       }
-      location.href = `mailto:${C.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      location.href = "mailto:" + C.contact.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       say("Opening your email app…", true);
     });
   }
@@ -189,9 +168,8 @@
   }
 
   function boot(opts = {}) {
-    $$("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear()));
-    const cta = C.contact.calendly || `mailto:${C.contact.email}?subject=${encodeURIComponent("Project enquiry")}`;
-    $$("[data-book]").forEach((a) => {
+    $$("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear())); const cta = C.contact.calendly \vert{}\vert{} ("mailto:" + C.contact.email + "?subject=" + encodeURIComponent("Project enquiry")); $$
+("[data-book]").forEach((a) => {
       a.href = cta;
       if (!String(cta).startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
     });
