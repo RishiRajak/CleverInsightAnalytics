@@ -190,7 +190,7 @@ h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.06;letter-spacing:-.035em;ma
 .tl p{color:var(--muted)}
 .tl .o{display:inline-block;margin-top:10px;font:.72rem var(--mono);color:var(--mint);border:1px solid rgba(94,234,212,.3);border-radius:99px;padding:3px 11px}
 
-/* rail */
+/* rail / project & testimonial rails */
 .rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(5vw,calc((100vw - 1180px)/2)) 30px;scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
 .pj{flex:0 0 min(400px,82vw);scroll-snap-align:start;border:1px solid var(--line);border-radius:24px;background:var(--glass);backdrop-filter:blur(10px);display:flex;flex-direction:column;transition:transform .35s}
@@ -241,10 +241,11 @@ h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.06;letter-spacing:-.035em;ma
 .plan li{display:flex;gap:10px}.plan li .ico{color:var(--mint);margin-top:3px}
 .plan .glow,.plan .ghost{margin-top:auto}
 
-/* quotes */
-.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.quotes blockquote{padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--glass);font-size:1.15rem}
-.quotes cite{display:block;margin-top:16px;font-style:normal;font-weight:600}
+/* quotes (horizontal sliding rail) */
+.quotes{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(5vw,calc((100vw - 1180px)/2)) 30px;scrollbar-width:none}
+.quotes::-webkit-scrollbar{display:none}
+.quotes blockquote{flex:0 0 min(420px, 85vw);scroll-snap-align:start;padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--glass);backdrop-filter:blur(10px);font-size:1.15rem;display:flex;flex-direction:column;justify-content:space-between}
+.quotes cite{display:block;margin-top:24px;font-style:normal;font-weight:600}
 .quotes cite small{display:block;color:var(--muted);font-weight:400}
 
 /* faq */
@@ -305,7 +306,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--violet);box
   .kpis,.mrow{grid-template-columns:1fr 1fr}
   .charts{grid-template-columns:1fr}
   .pl-row{grid-template-columns:14px 84px 1fr}.pl-row .meter{display:none}
-  .row,.quotes{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
   .sec-head.split{flex-direction:column;align-items:flex-start}
   .live{display:none}
   .app-body{padding:16px}
