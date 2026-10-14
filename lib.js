@@ -1,10 +1,8 @@
 /* Shared helpers for all simulations. Exposes window.CIAKit */
 (function () {
   const C = window.CIA;
-  const REVIEW = new URLSearchParams(location.search).has("review");
   const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const $ = (s, r = document) => r.querySelector(s); const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
   const esc = (s) =>
     String(s == null ? "" : s).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
@@ -95,16 +93,11 @@
   /* ---------- behaviours ---------- */
   function copy(obj, root = document) {
     $$("[data-copy]", root).forEach((el) => { const v = obj[el.dataset.copy]; if (v != null) el.textContent = v; });
-    $$("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); });
-  }
-
-  function reveal() {
-    const els = $$("[data-reveal]");
+    $$("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); }); }    function reveal() { const els = $$
+("[data-reveal]");
     if (REDUCED || !("IntersectionObserver" in window)) return els.forEach((e) => e.classList.add("in"));
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     els.forEach((e) => {
-      /* Anything already on screen is revealed immediately (also works if the tab is
-         in the background, where IntersectionObserver callbacks are deferred). */
       const r = e.getBoundingClientRect();
       if (r.top < innerHeight * 0.95 && r.bottom > 0) { e.classList.add("in"); return; }
       io.observe(e);
@@ -112,26 +105,8 @@
   }
 
   function countUp() {
-    $$("[data-count]").forEach((el) => {
-      const to = +el.dataset.count, suf = el.dataset.suffix || "";
-      if (REDUCED) { el.textContent = to + suf; return; }
-      const io = new IntersectionObserver(([e]) => {
-        if (!e.isIntersecting) return;
-        io.disconnect();
-        const t0 = performance.now(), dur = 1400;
-        const tick = (t) => {
-          const p = Math.min(1, (t - t0) / dur);
-          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suf;
-          if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      }, { threshold: 0.6 });
-      io.observe(el);
-    });
-  }
-
-  function spotlight(sel) {
-    $$(sel).forEach((el) => {
+    $$("[data-count]").forEach((el) => { const to = +el.dataset.count, suf = el.dataset.suffix \vert{}\vert{} ""; if (REDUCED) { el.textContent = to + suf; return; } const io = new IntersectionObserver(([e]) => { if (!e.isIntersecting) return; io.disconnect(); const t0 = performance.now(), dur = 1400; const tick = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }, { threshold: 0.6 }); io.observe(el); }); }    function spotlight(sel) { $$
+(sel).forEach((el) => {
       el.addEventListener("pointermove", (e) => {
         const r = el.getBoundingClientRect();
         el.style.setProperty("--mx", e.clientX - r.left + "px");
@@ -174,9 +149,7 @@
       e.preventDefault();
       const d = Object.fromEntries(new FormData(f));
       if (d.company_site) return; // honeypot
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.email || "").trim());
-      const nameOk = String(d.name || "").trim().length > 1;
-      $$("input[name=name],input[name=email]", f).forEach((i) => i.removeAttribute("aria-invalid"));
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.email \vert{}\vert{} "").trim()); const nameOk = String(d.name \vert{}\vert{} "").trim().length > 1; $$("input[name=name],input[name=email]", f).forEach((i) => i.removeAttribute("aria-invalid"));
       if (!nameOk || !emailOk) {
         const bad = $(!nameOk ? "input[name=name]" : "input[name=email]", f);
         bad.setAttribute("aria-invalid", "true");
@@ -198,7 +171,7 @@
         return;
       }
       location.href = `mailto:${C.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      say("Opening your email app… (Form endpoint not connected yet — preview mode.)", true);
+      say("Opening your email app…", true);
     });
   }
 
@@ -219,38 +192,6 @@
     document.head.appendChild(s);
   }
 
-  /* Review mode: outlines every placeholder and lists what info is needed. */
-  function review() {
-    const css = document.createElement("style");
-    css.textContent = `
-      .cia-rbtn{position:fixed;left:14px;bottom:14px;z-index:9999;font:600 12px/1 system-ui,sans-serif;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:#111827;color:#fff;cursor:pointer;opacity:.85}
-      .cia-rbtn:hover{opacity:1}
-      body.cia-review [data-todo]{outline:2px dashed #f59e0b !important;outline-offset:4px}
-      .cia-rpanel{position:fixed;left:14px;bottom:60px;z-index:9999;width:min(340px,calc(100vw - 28px));max-height:52vh;overflow:auto;background:#111827;color:#f9fafb;border:1px solid #f59e0b;border-radius:14px;padding:14px 16px;font:13px/1.45 system-ui,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-      .cia-rpanel h4{font-size:13px;margin-bottom:8px;color:#fbbf24}
-      .cia-rpanel li{margin:0 0 6px 16px}
-    `;
-    document.head.appendChild(css);
-    const btn = document.createElement("button");
-    btn.className = "cia-rbtn";
-    btn.type = "button";
-    btn.textContent = REVIEW ? "Exit review mode" : "Review mode";
-    btn.addEventListener("click", () => {
-      const u = new URL(location.href);
-      REVIEW ? u.searchParams.delete("review") : u.searchParams.set("review", "1");
-      location.href = u.toString();
-    });
-    document.body.appendChild(btn);
-    if (!REVIEW) return;
-    document.body.classList.add("cia-review");
-    const uniq = {};
-    $$("[data-todo]").forEach((n) => { const k = n.dataset.todo; uniq[k] = (uniq[k] || 0) + 1; });
-    const p = document.createElement("div");
-    p.className = "cia-rpanel";
-    p.innerHTML = `<h4>Still to confirm</h4><ul>${Object.entries(uniq).map(([k, n]) => `<li>${esc(k)}${n > 1 ? ` <small>(×${n})</small>` : ""}</li>`).join("") || "<li>Nothing outlined on this page.</li>"}</ul><h4 style="margin-top:10px">Master checklist</h4><ul>${C.todo.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
-    document.body.appendChild(p);
-  }
-
   function boot(opts = {}) {
     $$("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear()));
     const cta = C.contact.calendly || `mailto:${C.contact.email}?subject=${encodeURIComponent("Project enquiry")}`;
@@ -265,8 +206,7 @@
     progress($(".progress"));
     form($(".contact-form"));
     schema();
-    review();
   }
 
-  window.CIAKit = { C, REVIEW, REDUCED, $, $$, esc, hl, todo, initials, pad, icon, cover, copy, counts, stats, socials, marquee, boot };
+  window.CIAKit = { C, REDUCED, $,$$, esc, hl, todo, initials, pad, icon, cover, copy, counts, stats, socials, marquee, boot };
 })();
