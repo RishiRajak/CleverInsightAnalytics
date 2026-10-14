@@ -2,17 +2,16 @@
 (function () {
   const C = window.CIA;
   const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const $= (s, r = document) => r.querySelector(s); const$$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const $ = (s, r = document) => r.querySelector(s); const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
   const esc = (s) =>
     String(s == null ? "" : s).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
-  /* "Hello [world]" -> Hello <em>world</em> */
+  
   const hl = (s) => esc(s).replace(/\[(.+?)\]/g, "<em>$1</em>");
   const todo = (t) => (t ? ` data-todo="${esc(t)}"` : "");
   const initials = (n) => String(n).split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
   const pad = (n) => String(n).padStart(2, "0");
 
-  /* ---------- icons (stroke, 24px grid) ---------- */
   const ICONS = {
     layers: '<path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
     chart: '<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
@@ -33,7 +32,6 @@
   const icon = (n, s = 24) =>
     `<svg class="ico" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ICONS.spark}</svg>`;
 
-  /* ---------- computed data ---------- */
   const counts = () => ({
     pillars: C.services.length,
     capabilities: C.services.reduce((a, s) => a + s.items.length, 0),
@@ -47,7 +45,6 @@
       .filter(([, v]) => v)
       .map(([k, v]) => ({ key: k, url: v, label: { linkedin: "LinkedIn", github: "GitHub", x: "X", upwork: "Upwork", clutch: "Clutch" }[k] || k }));
 
-  /* ---------- project cover art (pure SVG, uses currentColor) ---------- */
   const cover = (i) => {
     const k = i % 6;
     const head = '<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">';
@@ -90,7 +87,6 @@
     return head + body + "</svg>";
   };
 
-  /* ---------- behaviours ---------- */
   function copy(obj, root = document) {
     $$("[data-copy]", root).forEach((el) => { const v = obj[el.dataset.copy]; if (v != null) el.textContent = v; });
     $$("[data-copy-html]", root).forEach((el) => { const v = obj[el.dataset.copyHtml]; if (v != null) el.innerHTML = hl(v); }); }    function reveal() { const els = $$
@@ -148,7 +144,7 @@
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
       const d = Object.fromEntries(new FormData(f));
-      if (d.company_site) return; // honeypot
+      if (d.company_site) return;
       const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.email \vert{}\vert{} "").trim()); const nameOk = String(d.name \vert{}\vert{} "").trim().length > 1; $$("input[name=name],input[name=email]", f).forEach((i) => i.removeAttribute("aria-invalid"));
       if (!nameOk || !emailOk) {
         const bad = $(!nameOk ? "input[name=name]" : "input[name=email]", f);
