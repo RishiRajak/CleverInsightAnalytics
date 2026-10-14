@@ -1,512 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CUSTOMIZE: Website Title -->
-    <title>Clever Insight Analytics | Portfolio</title>
-
-    <style>
-        /* ==============================
-           GLOBAL STYLES
-        ============================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8fafc;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            color: #1a365d;
-        }
-
-        .section-description {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-        }
-
-        /* ==============================
-           NAVBAR
-        ============================== */
-
-        nav {
-            background: #0f172a;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 15px 0;
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links a {
-            color: white;
-            margin-left: 25px;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: #38bdf8;
-        }
-
-        /* ==============================
-           HERO SECTION
-        ============================== */
-
-        .hero {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            font-size: 1.2rem;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            margin-top: 30px;
-            background: #38bdf8;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .hero-btn:hover {
-            background: #0ea5e9;
-        }
-
-        /* ==============================
-           ABOUT SECTION
-        ============================== */
-
-        .about {
-            text-align: center;
-        }
-
-        .about p {
-            max-width: 850px;
-            margin: auto;
-            color: #555;
-        }
-
-        /* ==============================
-           SERVICES
-        ============================== */
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .service-card h3 {
-            color: #1e3a8a;
-            margin-bottom: 15px;
-        }
-
-        /* ==============================
-           PORTFOLIO
-        ============================== */
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-            gap: 25px;
-        }
-
-        .portfolio-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0,0,0,.08);
-        }
-
-        .portfolio-image {
-            height: 200px;
-            background: #cbd5e1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #475569;
-            font-weight: bold;
-        }
-
-        .portfolio-content {
-            padding: 25px;
-        }
-
-        .portfolio-content h3 {
-            margin-bottom: 10px;
-        }
-
-        /* ==============================
-           TEAM
-        ============================== */
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-            gap: 25px;
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,.08);
-        }
-
-        .team-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: #cbd5e1;
-            margin: 0 auto 15px;
-        }
-
-        .team-card h3 {
-            color: #1e3a8a;
-        }
-
-        /* ==============================
-           CONTACT
-        ============================== */
-
-        .contact {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-        }
-
-        .contact p {
-            margin: 10px 0;
-        }
-
-        /* ==============================
-           FOOTER
-        ============================== */
-
-        footer {
-            background: #020617;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media(max-width:768px) {
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clever Insight Analytics — Design simulations (partner review)</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#07090f;--card:#0f1524;--line:#243049;--text:#e8eefc;--muted:#93a0bb}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(800px 400px at 15% 0%,rgba(56,189,248,.14),transparent 60%),radial-gradient(700px 400px at 90% 10%,rgba(167,139,250,.14),transparent 60%)}
+    .wrap{width:min(1120px,92%);margin:0 auto;padding:72px 0 80px}
+    .kicker{color:#38bdf8;letter-spacing:.16em;font-size:.72rem;font-weight:700;text-transform:uppercase}
+    h1{font-size:clamp(2rem,4vw,3.3rem);margin:12px 0 14px;letter-spacing:-.03em;line-height:1.1}
+    .lede{color:var(--muted);max-width:66ch}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+    a.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;background:var(--card);transition:transform .25s,border-color .25s}
+    a.card:hover{transform:translateY(-5px);border-color:#3b82f6}
+    .thumb{height:150px;display:grid;place-items:center;font-weight:700;letter-spacing:.08em;font-size:.8rem;color:rgba(255,255,255,.85)}
+    .t1{background:linear-gradient(135deg,#071420,#0b3b4f 60%,#3ee0ff33);color:#3ee0ff}
+    .t2{background:linear-gradient(135deg,#f5f0e6,#e6d9bf 60%,#c2410c44);color:#17140f}
+    .t3{background:linear-gradient(135deg,#1b0f3a,#3b1d78 55%,#5eead466);color:#e9d5ff}
+    .body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc}
+    h2{font-size:1.4rem}
+    p{color:var(--muted);font-size:.95rem}
+    .go{margin-top:auto;padding-top:14px;font-weight:700;color:#fff}
+    .go small{font-weight:400;color:var(--muted)}
+    .box{margin-top:36px;border:1px solid var(--line);border-radius:16px;padding:22px 24px;background:rgba(15,21,36,.6)}
+    .box h3{font-size:1rem;margin-bottom:8px}
+    .box ul{margin-left:18px;color:var(--muted);font-size:.93rem}
+    code{background:#0b1220;border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:.85em;color:#bae6fd}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-
-    <!-- ==============================
-         NAVIGATION
-         CUSTOMIZE: Menu items if needed
-    =============================== -->
-    <nav>
-        <div class="container nav-wrapper">
-            <div class="logo">Clever Insight Analytics</div>
-
-            <div class="nav-links">
-                #aboutAbout</a>
-                #servicesServices</a>
-                #portfolioPortfolio</a>
-                #teamTeam</a>
-                #contactContact</a>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- ==============================
-         HERO SECTION
-         CUSTOMIZE: Heading & Tagline
-    =============================== -->
-    <section class="hero">
-        <div class="container">
-            <h1>Transforming Data Into Business Intelligence</h1>
-
-            <p>
-                Clever Insight Analytics helps businesses unlock the
-                power of data through custom software development,
-                advanced analytics, dashboards, automation, and
-                digital transformation solutions.
-            </p>
-
-            #portfolio
-                View Our Work
-            </a>
-        </div>
-    </section>
-
-
-    <!-- ==============================
-         ABOUT US
-         CUSTOMIZE: Company description
-    =============================== -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Us</h2>
-
-            <p>
-                Clever Insight Analytics is a technology and analytics
-                company focused on building scalable software,
-                data-driven solutions, BI dashboards, cloud platforms,
-                and AI-powered business applications. We partner with
-                organizations to transform raw data into actionable
-                insights and meaningful business outcomes.
-            </p>
-        </div>
-    </section>
-
-
-    <!-- ==============================
-         SERVICES
-         CUSTOMIZE: Service offerings
-    =============================== -->
-    <section id="services">
-        <div class="container">
-            <h2>Our Expertise</h2>
-            <p class="section-description">
-                Solutions tailored to modern businesses.
-            </p>
-
-            <div class="services-grid">
-
-                <div class="service-card">
-                    <h3>Custom Software Development</h3>
-                    <p>
-                        End-to-end development of scalable web and
-                        enterprise applications.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Data Analytics</h3>
-                    <p>
-                        Comprehensive analytics and reporting for
-                        informed business decisions.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Business Intelligence</h3>
-                    <p>
-                        Interactive dashboards and KPI tracking using
-                        modern BI platforms.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Cloud Solutions</h3>
-                    <p>
-                        Secure and scalable cloud architecture and
-                        deployment services.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ==============================
-         PORTFOLIO
-         CUSTOMIZE:
-         - Project names
-         - Descriptions
-         - Images
-    =============================== -->
-    <section id="portfolio">
-        <div class="container">
-            <h2>Featured Projects</h2>
-
-            <p class="section-description">
-                A snapshot of our recent development and analytics work.
-            </p>
-
-            <div class="portfolio-grid">
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        PROJECT IMAGE
-                    </div>
-
-                    <div class="portfolio-content">
-                        <h3>Sales Intelligence Dashboard</h3>
-                        <p>
-                            Interactive BI solution providing real-time
-                            business insights and forecasting.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        PROJECT IMAGE
-                    </div>
-
-                    <div class="portfolio-content">
-                        <h3>Customer Analytics Platform</h3>
-                        <p>
-                            Data platform enabling customer segmentation
-                            and engagement analytics.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        PROJECT IMAGE
-                    </div>
-
-                    <div class="portfolio-content">
-                        <h3>Workflow Automation Suite</h3>
-                        <p>
-                            Automated business processes reducing manual
-                            effort and operational cost.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ==============================
-         TEAM SECTION
-         CUSTOMIZE:
-         Developer names
-         Roles
-         Profile photos
-    =============================== -->
-    <section id="team">
-        <div class="container">
-            <h2>Meet Our Team</h2>
-
-            <p class="section-description">
-                Experienced professionals delivering impactful solutions.
-            </p>
-
-            <div class="team-grid">
-
-                <div class="team-card">
-                    <div class="team-avatar"></div>
-                    <h3>Developer Name</h3>
-                    <p>Full Stack Developer</p>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-avatar"></div>
-                    <h3>Developer Name</h3>
-                    <p>Data Analyst</p>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-avatar"></div>
-                    <h3>Developer Name</h3>
-                    <p>Cloud Engineer</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ==============================
-         CONTACT
-         CUSTOMIZE:
-         Email
-         Phone
-         Address
-         Social Links
-    =============================== -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-
-            <p>Email: info@cleverinsightanalytics.com</p>
-            <p>Phone: +91 XXXXX XXXXX</p>
-            <p>Location: India</p>
-        </div>
-    </section>
-
-
-    <!-- ==============================
-         FOOTER
-         CUSTOMIZE: Copyright
-    =============================== -->
-    <footer>
-        <p>
-            © 2026 Clever Insight Analytics.
-            All Rights Reserved.
-        </p>
-    </footer>
-
+  <div class="wrap">
+    <p class="kicker">Hardik-dev · partner review</p>
+    <h1>Three finished-look simulations of the Clever Insight Analytics site</h1>
+    <p class="lede">Same company, same content, three visual directions. All three read from one shared file, so what you fill in once appears everywhere. Pick a direction with your partners, then we rebuild it in Next.js 15 for production.</p>
+    <div class="grid">
+      <a class="card" href="./sim-01-command-center/index.html">
+        <div class="thumb t1">DARK · OPS · TERMINAL</div>
+        <div class="body"><span class="tag">Sim 01</span><h2>Command Center</h2>
+          <p>Technical and KPI-first. Animated live data-flow diagram, service console, monospace details. Reads as a data product studio.</p>
+          <span class="go">Open <small>· or with <code>?review=1</code></small></span></div>
+      </a>
+      <a class="card" href="./sim-02-signal-house/index.html">
+        <div class="thumb t2">LIGHT · EDITORIAL · SERIF</div>
+        <div class="body"><span class="tag">Sim 02</span><h2>Signal House</h2>
+          <p>Warm paper, big serif type, scroll-lit manifesto and an accordion service list. Reads as a senior, trustworthy consultancy.</p>
+          <span class="go">Open <small>· or with <code>?review=1</code></small></span></div>
+      </a>
+      <a class="card" href="./sim-03-aurora-platform/index.html">
+        <div class="thumb t3">GLASS · AURORA · PRODUCT</div>
+        <div class="body"><span class="tag">Sim 03</span><h2>Aurora Platform</h2>
+          <p>Mesh gradients, spotlight bento cards and an interactive product preview. Reads as one platform you can hire.</p>
+          <span class="go">Open <small>· or with <code>?review=1</code></small></span></div>
+      </a>
+    </div>
+    <div class="box">
+      <h3>How to review</h3>
+      <ul>
+        <li>Open any simulation and press <b>Review mode</b> (bottom-left) to outline every placeholder and list the info still needed.</li>
+        <li>Edit <code>shared/content.js</code> to change copy, services, team, projects and contact details for all three at once.</li>
+        <li>Resize to phone width: all three are responsive and respect reduced-motion settings.</li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
