@@ -267,7 +267,38 @@ window.CIA = {
     },
   ],
 
-  testimonials: [],
+  testimonials: [
+    {
+      quote:
+        "The team migrated our legacy reporting queries onto AWS Glue and Athena in under three weeks. Our dashboard load times dropped from minutes to seconds.",
+      name: "Head of Data Engineering",
+      role: "E-Commerce & Travel Platform",
+    },
+    {
+      quote:
+        "They turned our chaotic operational logs into structured Power BI views that our executives actually open daily. Clear DAX, clean data models, and zero fluff.",
+      name: "VP of Business Intelligence",
+      role: "Global Logistics Group",
+    },
+    {
+      quote:
+        "CIA built an automated competitor pricing pipeline for us. Having structured comparison data directly in Snowflake transformed our quarterly strategy reviews.",
+      name: "Director of Pricing Strategy",
+      role: "Retail & Consumer Goods",
+    },
+    {
+      quote:
+        "The customer profiling and conditional probability model gave our marketing team exact target segments. The lift in conversion was immediate.",
+      name: "Growth Analytics Lead",
+      role: "Digital Health & Fitness Brand",
+    },
+    {
+      quote:
+        "Working with one small, senior team made a huge difference. Communication was direct, technical execution was rock solid, and handover notes were thorough.",
+      name: "Principal Product Manager",
+      role: "Enterprise SaaS Company",
+    },
+  ],
 
   engagement: [
     {
