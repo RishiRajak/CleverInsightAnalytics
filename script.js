@@ -80,7 +80,7 @@
   const quotes = C.testimonials || [];
   if (quotes.length) {
     $("#voices").hidden = false;
-    $("#quotes").innerHTML = quotes.map((t) => '<blockquote' + todo(t.todo) + '>“' + esc(t.quote) + '”<cite>' + esc(t.name) + '<small>' + esc(t.role) + '</small></cite></blockquote>').join("");
+    $("#quotes").innerHTML = quotes.map((t) => '<blockquote' + todo(t.todo) + '>"' + esc(t.quote) + '"<cite>' + esc(t.name) + '<small>' + esc(t.role) + '</small></cite></blockquote>').join("");
   }
   
   const quoteRail = $("#quotes");
